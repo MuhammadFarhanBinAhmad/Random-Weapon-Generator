@@ -12,11 +12,10 @@ public class RandomWeaponGenerator : MonoBehaviour
     /// 4 - DoubleBarrrel_ShotGun
     /// 5 - MachineGun
     /// 6 - Rocket
-    /// </summary>
+
     /*public enum Type { Pistol, SubMachineGun, Rifle, Shotgun,DoubleBarrrel_ShotGun, MachineGun,Rocket };
     public Type the_Weapon_Type;*/
     public int the_Weapon_Type;
-    bool is_Shotgun;
     //NAME//
     public string weapon_name;
 
@@ -41,18 +40,29 @@ public class RandomWeaponGenerator : MonoBehaviour
     int mag_Capacity;
     //For ShotGuns
     int rounds_Shot;
-    //
+    bool is_Shotgun;
+    //For Rocket
+    bool is_Rocket;
+
     public GameObject testObject;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            the_Weapon_Type = Random.Range(0, 6);
+            //the_Weapon_Type = Random.Range(0,6);
+            the_Weapon_Type = 6;
             CreateWeaponStats(the_Weapon_Type);
         }
     }
-
+    /// <Type of Weapon>
+    /// 0 - Pistol
+    /// 1 - SubMachineGun
+    /// 2 - Rifle
+    /// 3 - Shotgun
+    /// 4 - DoubleBarrrel_ShotGun
+    /// 5 - MachineGun
+    /// 6 - Rocket
     void CreateWeaponStats(int WT)
     {
         //Set up Stats
@@ -160,7 +170,10 @@ public class RandomWeaponGenerator : MonoBehaviour
         {
             case 1:
                 {
-                    weapon_name += "Explosive ";
+                    if (!is_Rocket)
+                    {
+                        weapon_name += "Explosive ";
+                    }
                     break;
                 }
             case 2:
@@ -205,7 +218,7 @@ public class RandomWeaponGenerator : MonoBehaviour
                 }
         }
 
-        ElementalType(Random.Range(0,5));
+        ElementalType(Random.Range(0,6));
 
     }
     void ElementalType(int ET)
@@ -266,7 +279,7 @@ public class RandomWeaponGenerator : MonoBehaviour
                     the_Weapon_Mode = 1;
                     break;
                 }
-            case 1:
+            case 1: 
                 {
                     weapon_name += "SubMachineGun ";
                     the_Weapon_Mode = 2;
@@ -301,7 +314,9 @@ public class RandomWeaponGenerator : MonoBehaviour
             case 6:
                 {
                     weapon_name += "Rocket";
+                    is_Rocket = true;
                     the_Weapon_Mode = 1;
+                    the_Round_Type = 1;
                     break;
                 }
         }
@@ -321,9 +336,18 @@ public class RandomWeaponGenerator : MonoBehaviour
         NewWeapon.the_Round_Type = the_Round_Type;
         NewWeapon.the_Element_Type = the_Element_Type;
         NewWeapon.weapon_Name = weapon_name;
-        NewWeapon.is_Shotgun = is_Shotgun;
+        if (is_Shotgun)
+        {
+            NewWeapon.is_Shotgun = is_Shotgun;
+        }
+        if (is_Rocket)
+        {
+            NewWeapon.is_Rocket = is_Rocket;
+        }
+        //Reset special stats
         weapon_name = null;
         NewWeapon = null;
-        
+        is_Shotgun = false;
+        is_Rocket = false;
     }
 }

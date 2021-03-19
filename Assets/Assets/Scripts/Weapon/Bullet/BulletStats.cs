@@ -9,12 +9,17 @@ public class BulletStats : MonoBehaviour
 
     Rigidbody the_RB;
 
-
     //Round Type
     public int round_Type;
-
     //Element Type
     public int element_Type;
+    public GameObject acid_Smoke;
+    //For Rocket Only
+    public bool is_Rocket;
+    public GameObject rocket_Explosion_Elemental;
+
+    public LayerMask Weapon_Layer;
+
 
     private void Start()
     {
@@ -56,11 +61,7 @@ public class BulletStats : MonoBehaviour
             /// 3 - Acid - create smoke on hit enemy that damage nearby enemy and yourself
             /// 4 - Holy - x2 for dark enemy
             /// 5 - Dark - x2 for light enemy
-            /*if (element_Type != 0)
-            {
-                other.GetComponent<BaseEnemy>().debuff_Timer = 10;//set timer
-                other.GetComponent<BaseEnemy>().currently_Elemental_Damage_Type = element_Type;
-            }*/
+
             switch (element_Type)
             {
                 case 0:
@@ -81,6 +82,9 @@ public class BulletStats : MonoBehaviour
                     }
                 case 3:
                     {
+                        other.GetComponent<BaseEnemy>().debuff_Timer = 10;//set timer
+                        GameObject AS = Instantiate(acid_Smoke, transform.localPosition, transform.rotation);//spawn acid smoke
+                        AS.transform.parent = other.transform;//acid stick to enemy
                         break;
                     }
                 case 4:
@@ -115,10 +119,24 @@ public class BulletStats : MonoBehaviour
                     }
                 case 1:
                     {
-                        print("Explosive");
-                        other.GetComponent<BaseEnemy>().TakingDamage(bullet_Damage*1.25f);
-                        other.GetComponent<Rigidbody>().AddExplosionForce(2.5f, transform.position, 1);
-                        Destroy();
+                        
+                        if (!is_Rocket)
+                        {
+                            print("Explosive");
+                            other.GetComponent<BaseEnemy>().TakingDamage(bullet_Damage * 1.25f);
+                            other.GetComponent<Rigidbody>().AddExplosionForce(2.5f, transform.position, 1);
+                            Destroy();
+                        }
+                        //For Rocket
+                        else
+                        {
+                            print("Rocket");
+                            other.GetComponent<BaseEnemy>().TakingDamage(bullet_Damage);
+                            GameObject REE = Instantiate(rocket_Explosion_Elemental, transform.position, transform.rotation);//Rocket Explosion
+                            REE.GetComponent<ElementalRocket>().element_Type = element_Type;
+                            //other.GetComponent<Rigidbody>().AddExplosionForce(1000, transform.position, 2);
+                            Destroy();
+                        }
                         break;
                     }
                 case 2:
@@ -189,6 +207,16 @@ public class BulletStats : MonoBehaviour
                         break;
                     }
             }
+        }
+        else if (is_Rocket && other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            GameObject REE = Instantiate(rocket_Explosion_Elemental, transform.position, transform.rotation);//Rocket Explosion
+            REE.GetComponent<ElementalRocket>().element_Type = element_Type;
+            Destroy();
+        }
+        else 
+        {
+            Invoke("Destroy", 2.5f); 
         }
     }
 }

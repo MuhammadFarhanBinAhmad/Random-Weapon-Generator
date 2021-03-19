@@ -13,6 +13,10 @@ public class EnemyBasicAI : MonoBehaviour
 
     BaseEnemy the_BE;
 
+    /// Testing Variable
+    [Header("Test Variable")]
+    public bool Static;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,29 +27,32 @@ public class EnemyBasicAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!the_BE.is_Stunned)
+        if (!Static)
         {
-            if (agent.remainingDistance <= agent.stoppingDistance)
+            if (!the_BE.is_Stunned)
             {
-                if (current_CheckPoint > check_Point.Count - 1)
+                if (agent.remainingDistance <= agent.stoppingDistance)
                 {
-                    current_CheckPoint = 0;
+                    if (current_CheckPoint > check_Point.Count - 1)
+                    {
+                        current_CheckPoint = 0;
+                    }
+                    else
+                    {
+                        current_CheckPoint++;
+                    }
                 }
-                else
+                agent.destination = check_Point[current_CheckPoint].transform.position;
+                transform.LookAt(check_Point[current_CheckPoint].transform);
+            }
+            else
+            {
+                if (the_BE.is_Stunned)
                 {
-                    current_CheckPoint++;
+                    agent.speed = 0;
                 }
             }
-            agent.destination = check_Point[current_CheckPoint].transform.position;
-            transform.LookAt(check_Point[current_CheckPoint].transform);
-        }
-        else
-        {
-            if(the_BE.is_Stunned)
-            {
-                agent.speed = 0;
-            }
-        }
 
+        }
     }
 }

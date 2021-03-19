@@ -8,9 +8,10 @@ public class PlayerUIHUD : MonoBehaviour
     //PLAYER HUG//
     public TextMeshProUGUI ui_Weapon_Ammo,ui_Weapon_Name, ui_Total_Ammo;
     public BaseGun current_Weapon;
-    //PLAYER/GAME UI//
+    //PLAYER GAME UI//
     public GameObject PauseMenu;
     bool menu_Open;
+    public TextMeshProUGUI pickable_Weapon_Name_GUI;
 
     private void Update()
     {
@@ -41,6 +42,10 @@ public class PlayerUIHUD : MonoBehaviour
     }
     internal void WeaponNameUpdate(int i)
     {
-        //ui_Weapon_Name.text = current_Weapon.the_Weapon_States.weapon_Name.ToString();//Weapon Name
+        ui_Weapon_Name.text = current_Weapon.weapon_Name.ToString();//Weapon Name
+    }
+    internal void PickableWeaponDetails(string WN)
+    {
+        pickable_Weapon_Name_GUI.text = WN;
     }
 }

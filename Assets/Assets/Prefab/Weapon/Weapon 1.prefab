@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887680162}
   m_LocalRotation: {x: 0.70710677, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.1699, z: -0.0655}
+  m_LocalPosition: {x: 0, y: -0.1699, z: -0.115}
   m_LocalScale: {x: 0.5610398, y: 0.10958789, z: 0.5681039}
   m_Children: []
   m_Father: {fileID: 6107117007300558372}
@@ -90,7 +90,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 249163994744966753}
-  - component: {fileID: 2060539391665650126}
+  - component: {fileID: 6600823958057071806}
   m_Layer: 0
   m_Name: BoxCollider
   m_TagString: Untagged
@@ -112,7 +112,7 @@ Transform:
   m_Father: {fileID: 6107117006981121312}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2060539391665650126
+--- !u!65 &6600823958057071806
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,7 +123,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.25, y: 1.25, z: 1}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6107117006981121315
 GameObject:
@@ -237,6 +237,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   the_Player_UI_HUD: {fileID: 0}
+  weapon_Name: 
+  the_Weapon_Mode: 0
+  is_Shotgun: 0
+  is_Rocket: 0
+  the_Round_Type: 0
+  the_Element_Type: 0
   gun_Total_Mag_Capacity: 0
   gun_Total_Ammo: 0
   gun_current_Mag_Capacity: 0
@@ -288,7 +294,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6107117007300558375}
   m_LocalRotation: {x: 0, y: -1, z: -0, w: -0.00000035762784}
-  m_LocalPosition: {x: 0, y: 0, z: -0.608}
+  m_LocalPosition: {x: 0, y: 0, z: -0.717}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1887680163}

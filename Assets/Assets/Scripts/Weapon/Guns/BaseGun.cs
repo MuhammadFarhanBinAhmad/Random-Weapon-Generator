@@ -13,17 +13,17 @@ public class BaseGun : MonoBehaviour
     //STATS
 
     public string weapon_Name;
-
+    [Header("Weapon features")]
     //TYPE//
     /// <Type of mode>
     /// 1 - Single
     /// 2 - Auto
     /// </summary>
-    internal int the_Weapon_Mode;
+    public int the_Weapon_Mode;
 
-    ///*Weapon(For Shotgun only)
-    internal bool is_Shotgun;
-
+    ///*Weapon(For Special Weapon only)
+    public bool is_Shotgun;
+    public bool is_Rocket;
 
     /// <Type of Round>
     /// 1 - Explosive
@@ -40,21 +40,20 @@ public class BaseGun : MonoBehaviour
     /// 7 - QuickPace - Every Succesful hit make the player faster
     /// 8 - Flyer - Make Player jump higher
     /// 9 - Tracer - Home to the nearest enemy
-
     public int the_Element_Type;
-
+    [Header("Ammo")]
     public int gun_Total_Mag_Capacity, gun_Total_Ammo;
     public int gun_current_Mag_Capacity, gun_current_Ammo;
 
     int i = 1;
-
+    [Header("Current state")]
     bool currently_Shooting;
     bool currently_Reloading;
-
+    [Header("Rate & Reload")]
     public float fire_Rate;
     public float next_Time_To_Fire = 0;
     public float reload_Time;
-
+    [Header("Damage")]
     public int min_Damage, max_Damage;
     //
 
@@ -201,7 +200,7 @@ public class BaseGun : MonoBehaviour
                         the_Ammo_Pool.bullet_Pool[i].GetComponent<BulletStats>().bullet_Damage = Random.Range(min_Damage, max_Damage);//get damage value
                         the_Ammo_Pool.bullet_Pool[i].GetComponent<BulletStats>().round_Type = the_Round_Type;//set bullet type
                         the_Ammo_Pool.bullet_Pool[i].GetComponent<BulletStats>().ElementType(the_Element_Type);//set bullet type
-
+                        the_Ammo_Pool.bullet_Pool[i].GetComponent<BulletStats>().is_Rocket = is_Rocket;
                         //update Weapon UI
                         gun_current_Mag_Capacity--;
                         the_Player_UI_HUD.AmmoUpdate(the_Player_Manager.current_Weapon);

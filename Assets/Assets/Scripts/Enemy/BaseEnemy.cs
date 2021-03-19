@@ -41,7 +41,6 @@ public class BaseEnemy : MonoBehaviour
         }
         else
         {
-            print("hit2");
             RemoveDebuff();
         }
     }
@@ -81,6 +80,16 @@ public class BaseEnemy : MonoBehaviour
                     break;
                 }
             case 3:
+                {
+                    //refer to BulletStats.cs for effect
+                    break;
+                }
+            case 4:
+                {
+
+                    break;
+                }
+            case 5:
                 {
 
                     break;

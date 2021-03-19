@@ -104,6 +104,9 @@ public class PlayerManager : MonoBehaviour
             pickable_Weapon.GetComponent<Rigidbody>().isKinematic = true;
             //Set up UI value
             pickable_Weapon.GetComponent<BaseGun>().SetValue();
+            pickable_Weapon.GetComponent<BoxCollider>().enabled =false;
+            //Reset picking up values
+            WeaponPickedUpOrLeft();
         }
     }
 
@@ -217,17 +220,32 @@ public class PlayerManager : MonoBehaviour
             print("Dead");
         }
     }
+    void WeaponDetected(BaseGun BG)
+    {
+        pickable_Weapon = BG;
+        the_Player_UI_HUD.pickable_Weapon_Name_GUI.gameObject.SetActive(true);
+        the_Player_UI_HUD.PickableWeaponDetails(pickable_Weapon.weapon_Name);
+    }
+    //reset value if player decide to leave the weapon or pick it up
+    void WeaponPickedUpOrLeft()
+    {
+        pickable_Weapon = null;
+        the_Player_UI_HUD.PickableWeaponDetails(null);
+        the_Player_UI_HUD.pickable_Weapon_Name_GUI.gameObject.SetActive(false);
+    }
     //player able to pick up weapon
     private void OnTriggerEnter(Collider other)
     {
 
         if (other.GetComponent<BaseGun>() != null)
         {
-            pickable_Weapon = other.GetComponent<BaseGun>();
+            WeaponDetected(other.GetComponent<BaseGun>());
+            print("hit1");
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        pickable_Weapon = null; ;
+        WeaponPickedUpOrLeft();
+        print("hit2");
     }
 }
