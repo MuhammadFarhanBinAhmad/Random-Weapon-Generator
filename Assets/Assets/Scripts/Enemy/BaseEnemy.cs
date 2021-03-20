@@ -22,6 +22,8 @@ public class BaseEnemy : MonoBehaviour
 
     NavMeshAgent agent;
 
+    public GameObject damage_UI;
+
     void Start()
     {
         speed = the_Enemy_Stats.speed;
@@ -108,6 +110,16 @@ public class BaseEnemy : MonoBehaviour
     public void TakingDamage(float dmg)
     {
         health -= dmg;
+        GameObject DUI = Instantiate(damage_UI, transform.position, transform.rotation);
+        if (DUI.GetComponent<DamageUI>()!=null)
+        {
+            DUI.GetComponent<DamageUI>().damage_UI = DUI.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+            DUI.GetComponent<DamageUI>().DamageText(dmg);
+        }
+        else
+        {
+            print("DMG text not found");
+        }
         if (health <= 0)
         {
             Destroy(gameObject);

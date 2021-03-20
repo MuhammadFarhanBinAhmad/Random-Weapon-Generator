@@ -50,8 +50,7 @@ public class RandomWeaponGenerator : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            //the_Weapon_Type = Random.Range(0,6);
-            the_Weapon_Type = 6;
+            the_Weapon_Type = Random.Range(0,6);
             CreateWeaponStats(the_Weapon_Type);
         }
     }
@@ -81,7 +80,7 @@ public class RandomWeaponGenerator : MonoBehaviour
             case 1:
                 {
                     reload_Time = 1.25f;
-                    fire_Rate = 6.5f;
+                    fire_Rate = 8f;
                     total_Ammo = 250;
                     mag_Capacity = 25;
                     min_Damage = 15;
@@ -123,7 +122,7 @@ public class RandomWeaponGenerator : MonoBehaviour
             case 5:
                 {
                     reload_Time = 1.5f;
-                    fire_Rate = 4.5f;
+                    fire_Rate = 6f;
                     total_Ammo = 400;
                     mag_Capacity = 100;
                     min_Damage = 25;
@@ -287,7 +286,7 @@ public class RandomWeaponGenerator : MonoBehaviour
                 }
             case 2:
                 {
-                    weapon_name += "Rifle ";
+                    weapon_name += "Assault Rifle ";
                     the_Weapon_Mode = 2;
                     break;
                 }

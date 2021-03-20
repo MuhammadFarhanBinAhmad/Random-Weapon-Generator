@@ -120,6 +120,7 @@ MonoBehaviour:
   debuff_Rate: 1
   next_Time_To_Debuff: 0
   debuff_Timer: 0
+  damage_UI: {fileID: 3538042304583623460, guid: 5b6ee1eed26cc644cb6d86a6aaa35dbb, type: 3}
 --- !u!54 &3324916536127214433
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -155,7 +156,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: 0.5
+  m_BaseOffset: 100
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &2442504292981896157

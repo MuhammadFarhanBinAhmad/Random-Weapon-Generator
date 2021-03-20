@@ -27,7 +27,7 @@ public class PlayerManager : MonoBehaviour
     bool is_Grounded;
     //Weapon Change
     public List<BaseGun> weapon_Inventory = new List<BaseGun>();
-    internal int current_Weapon = 0;
+    public int current_Weapon = 0;
     //WeaponPickup
     public BaseGun pickable_Weapon;
     //Flash Light//
@@ -67,34 +67,30 @@ public class PlayerManager : MonoBehaviour
             current_Weapon = 1;
             SwitchWeapon(current_Weapon);
         }
-        /*//RUNNING// 
-        if (Input.GetKey(KeyCode.LeftAlt) && current_Stamina >= 0)
-        {
-            Running();
-        }
-        else
-        {
-            StopRunning();
-        }*/
-        /*//FLASHLIGHT//
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            if (!fl_On)
-            {
-                the_Flash_Light.SetActive(true);
-                fl_On = true;
-            }
-            else if (fl_On)
-            {
-                the_Flash_Light.SetActive(false);
-                fl_On = false;
-            }
-        }*/
+
         //PICK UP WEAPON
         if (Input.GetKeyDown(KeyCode.E) && pickable_Weapon != null)
         {
-            //add weapon to inventory
-            weapon_Inventory.Add(pickable_Weapon);
+            if (weapon_Inventory.Count != 2)
+            {
+                //add weapon to inventory
+                weapon_Inventory.Add(pickable_Weapon);
+                if (weapon_Inventory[0] !=null && weapon_Inventory.Count == 2)
+                {
+                    weapon_Inventory[0].gameObject.SetActive(false);
+                    current_Weapon++;
+                    print("hit0");
+                }
+            }
+            else
+            {
+                weapon_Inventory[current_Weapon].GetComponent<Rigidbody>().isKinematic = false;
+                weapon_Inventory[current_Weapon].transform.parent = null;
+                weapon_Inventory[current_Weapon].weapon_Eqip = false;
+                weapon_Inventory[current_Weapon].GetComponent<BoxCollider>().enabled = true;
+                weapon_Inventory[current_Weapon] = pickable_Weapon;
+                print("hit1");
+            }
             pickable_Weapon.GetComponent<BaseGun>().weapon_Eqip = true;
             //Set up position
             pickable_Weapon.transform.parent = GameObject.Find("Weapons").transform;
@@ -143,7 +139,9 @@ public class PlayerManager : MonoBehaviour
 
     void JumpPlayer()
     {
-        if (weapon_Inventory[current_Weapon].the_Round_Type == 8)//Flyer Round
+        //velocity.y = Mathf.Sqrt(jump_Force * -2 * gravity);
+
+        if (weapon_Inventory.Count > 0 && weapon_Inventory[current_Weapon].the_Round_Type == 8)//Flyer Round
         {
             velocity.y = Mathf.Sqrt(jump_Force * 1.5f * -2 * gravity);
         }
@@ -155,6 +153,7 @@ public class PlayerManager : MonoBehaviour
 
     void SwitchWeapon(int i)
     {
+        if (weapon_Inventory[0] != null && weapon_Inventory[1] != null)
         //Switching Weapon
         switch (i)
         {
@@ -180,37 +179,6 @@ public class PlayerManager : MonoBehaviour
         the_Player_UI_HUD.AmmoUpdate(i);
         the_Player_UI_HUD.WeaponNameUpdate(i);
     }
-    /*void Running()
-    {
-        //multiply speed value
-        if (!speed_Multiply)
-        {
-            speed_Multiply = true;
-            speed_Movement *= speed_Multiplier;
-        }
-        current_Stamina -= Time.fixedDeltaTime;
-        currently_Running = true;
-    }
-    void StopRunning()
-    {
-        speed_Multiply = false;
-        speed_Movement = the_Basic_Stats.speed;//reset the original movement value
-        currently_Running = false;
-        //Start regaining back stamina
-        if (current_Stamina < total_Stamina && !currently_Running)
-        {
-            StartCoroutine("RefillingStamina");
-        }
-    }
-    IEnumerator RefillingStamina()
-    {
-        yield return new WaitForSeconds(2);
-        if (current_Stamina <= total_Stamina)
-        {
-            current_Stamina += Time.fixedDeltaTime;
-        }
-        else StopAllCoroutines();
-    }*/
 
     internal void TakeDamage(float Dmg)
     {
@@ -240,12 +208,10 @@ public class PlayerManager : MonoBehaviour
         if (other.GetComponent<BaseGun>() != null)
         {
             WeaponDetected(other.GetComponent<BaseGun>());
-            print("hit1");
         }
     }
     private void OnTriggerExit(Collider other)
     {
         WeaponPickedUpOrLeft();
-        print("hit2");
     }
 }
