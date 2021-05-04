@@ -12,7 +12,7 @@ public class DamageUI : MonoBehaviour
     }
     private void Update()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y + .01f, transform.position.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y + .25f, transform.position.z);
     }
         
     void DestroySelf()

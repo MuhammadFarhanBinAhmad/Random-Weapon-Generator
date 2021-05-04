@@ -15,16 +15,30 @@ public class RandomWeaponGenerator : MonoBehaviour
 
     /*public enum Type { Pistol, SubMachineGun, Rifle, Shotgun,DoubleBarrrel_ShotGun, MachineGun,Rocket };
     public Type the_Weapon_Type;*/
-    public int the_Weapon_Type;
     //NAME//
     public string weapon_name;
 
+    //Weapon Part//
+    //public List<GameObject> W_body = new List<GameObject>();
+    [Header("Weapon Body")]
+    public List<GameObject> b_pistol = new List<GameObject>();
+    public List<GameObject> b_submachinegun = new List<GameObject>();
+    public List<GameObject> b_rifle = new List<GameObject>();
+    public List<GameObject> b_shotgun = new List<GameObject>();
+    public List<GameObject> b_doublebarrelshotgun = new List<GameObject>();
+    public List<GameObject> b_machinegun = new List<GameObject>();
+
+    int the_Weapon_Body_Number;
+    GameObject the_Weapon_Body_GO;
+    //Stats//
     //TYPE//
     /// <Type of mode>
     /// 1 - Single
-    /// 2 - Burst
-    /// 3 - Auto
+    /// 2 - Auto
     /// </summary>
+    /// 
+    public int the_Weapon_Type;
+
     int the_Weapon_Mode;
 
     int the_Round_Type;
@@ -44,16 +58,16 @@ public class RandomWeaponGenerator : MonoBehaviour
     //For Rocket
     bool is_Rocket;
 
-    public GameObject testObject;
+    //public GameObject testObject;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            the_Weapon_Type = Random.Range(0,6);
             CreateWeaponStats(the_Weapon_Type);
         }
     }
+
     /// <Type of Weapon>
     /// 0 - Pistol
     /// 1 - SubMachineGun
@@ -64,11 +78,14 @@ public class RandomWeaponGenerator : MonoBehaviour
     /// 6 - Rocket
     void CreateWeaponStats(int WT)
     {
+        //the_Weapon_Body_Number
         //Set up Stats
         switch (the_Weapon_Type)
         {
             case 0:
                 {
+                    the_Weapon_Body_Number = Random.Range(0, b_pistol.Count);
+                    the_Weapon_Body_GO = b_pistol[the_Weapon_Body_Number];
                     reload_Time = 1;
                     fire_Rate = 1;
                     total_Ammo = 100;
@@ -79,6 +96,8 @@ public class RandomWeaponGenerator : MonoBehaviour
                 }
             case 1:
                 {
+                    the_Weapon_Body_Number = Random.Range(0, b_submachinegun.Count);
+                    the_Weapon_Body_GO = b_submachinegun[the_Weapon_Body_Number];
                     reload_Time = 1.25f;
                     fire_Rate = 8f;
                     total_Ammo = 250;
@@ -89,6 +108,8 @@ public class RandomWeaponGenerator : MonoBehaviour
                 }
             case 2:
                 {
+                    the_Weapon_Body_Number = Random.Range(0, b_rifle.Count);
+                    the_Weapon_Body_GO = b_rifle[the_Weapon_Body_Number];
                     reload_Time = 1.25f;
                     fire_Rate = 4f;
                     total_Ammo = 300;
@@ -99,6 +120,8 @@ public class RandomWeaponGenerator : MonoBehaviour
                 }
             case 3:
                 {
+                    the_Weapon_Body_Number = Random.Range(0, b_shotgun.Count);
+                    the_Weapon_Body_GO = b_shotgun[the_Weapon_Body_Number];
                     reload_Time = .75f;
                     fire_Rate = .7f;
                     total_Ammo = 80;
@@ -110,6 +133,8 @@ public class RandomWeaponGenerator : MonoBehaviour
                 }
             case 4:
                 {
+                    the_Weapon_Body_Number = Random.Range(0, b_doublebarrelshotgun.Count);
+                    the_Weapon_Body_GO = b_doublebarrelshotgun[the_Weapon_Body_Number];
                     reload_Time = .75f;
                     fire_Rate = .7f;
                     total_Ammo = 40;
@@ -121,6 +146,8 @@ public class RandomWeaponGenerator : MonoBehaviour
                 }
             case 5:
                 {
+                    the_Weapon_Body_Number = Random.Range(0, b_machinegun.Count);
+                    the_Weapon_Body_GO = b_machinegun[the_Weapon_Body_Number];
                     reload_Time = 1.5f;
                     fire_Rate = 6f;
                     total_Ammo = 400;
@@ -222,7 +249,7 @@ public class RandomWeaponGenerator : MonoBehaviour
     }
     void ElementalType(int ET)
     {
-        ///TYPE
+        /// <Type of Element>
         /// 0 - Normal - None
         /// 1 - Ice - Slow down hit enemy
         /// 2 - Fire - passive damage on hit enemy
@@ -323,7 +350,7 @@ public class RandomWeaponGenerator : MonoBehaviour
     }
     void SpawnWeapon()
     {
-        GameObject GO = Instantiate(testObject, transform.position, transform.rotation);
+        GameObject GO = Instantiate(the_Weapon_Body_GO, transform.position, transform.rotation);
         BaseGun NewWeapon = GO.GetComponent<BaseGun>();
         NewWeapon.reload_Time = reload_Time;
         NewWeapon.fire_Rate = fire_Rate;

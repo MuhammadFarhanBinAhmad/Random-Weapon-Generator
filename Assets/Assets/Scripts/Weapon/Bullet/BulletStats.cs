@@ -54,13 +54,6 @@ public class BulletStats : MonoBehaviour
         {
             other.GetComponent<BaseEnemy>().TakingDamage(bullet_Damage);
             //Set Element type
-            ///TYPE
-            /// 0 - Normal - None
-            /// 1 - Ice - Slow down hit enemy
-            /// 2 - Fire - passive damage on hit enemy
-            /// 3 - Acid - create smoke on hit enemy that damage nearby enemy and yourself
-            /// 4 - Holy - x2 for dark enemy
-            /// 5 - Dark - x2 for light enemy
 
             switch (element_Type)
             {
@@ -97,17 +90,6 @@ public class BulletStats : MonoBehaviour
                     }
             }
 
-            /// <Type of Round>
-            /// 0 - Normal
-            /// 1 - Explosive - create small explosive that hurt nearby enemy
-            /// 2 - Piercing - pierce through enemy
-            /// 3 - Stunning - Stun enemy for a bit
-            /// 4 - Punch out - push enemy back
-            /// 5 - Healing - gain small bit of health from hit enemy
-            /// 6 - Payback - A succesful hit return 1 round back
-            /// 7 - QuickPace - Every Succesful hit make the player faster
-            /// 8 - Flyer - Make Player jump higher
-            /// 9 - Tracer - Home to the nearest enemy
             switch (round_Type)
             {
                 case 0:

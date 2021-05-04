@@ -15,31 +15,14 @@ public class BaseGun : MonoBehaviour
     public string weapon_Name;
     [Header("Weapon features")]
     //TYPE//
-    /// <Type of mode>
-    /// 1 - Single
-    /// 2 - Auto
-    /// </summary>
     public int the_Weapon_Mode;
 
     ///*Weapon(For Special Weapon only)
     public bool is_Shotgun;
     public bool is_Rocket;
 
-    /// <Type of Round>
-    /// 1 - Explosive
-    /// 2 - Piercing
-    /// 
     public int the_Round_Type;
-    /// 0 - Normal
-    /// 1 - Explosive - create small explosive that hurt nearby enemy
-    /// 2 - Piercing - pierce through enemy
-    /// 3 - Stunning - Stun enemy for a bit
-    /// 4 - Punch out - push enemy back
-    /// 5 - Healing - gain small bit of health from hit enemy
-    /// 6 - Payback - A succesful hit return 1 round back
-    /// 7 - QuickPace - Every Succesful hit make the player faster
-    /// 8 - Flyer - Make Player jump higher
-    /// 9 - Tracer - Home to the nearest enemy
+
     public int the_Element_Type;
     [Header("Ammo")]
     public int gun_Total_Mag_Capacity, gun_Total_Ammo;
@@ -55,9 +38,9 @@ public class BaseGun : MonoBehaviour
     public float reload_Time;
     [Header("Damage")]
     public int min_Damage, max_Damage;
-    //
 
     public GameObject bullet;
+    public GameObject barrel;
     public Transform bullet_Spawn_Point;
     
     internal bool weapon_Eqip;
@@ -65,10 +48,27 @@ public class BaseGun : MonoBehaviour
     private void Start()
     {
         this.name = weapon_Name;
+        //Set Weapon pickup boxcollider
+        BoxCollider BC = gameObject.AddComponent<BoxCollider>();
+        float bc_X = BC.size.x;
+        float bc_Y = BC.size.y;
+        float bc_Z = BC.size.x;
+        BC.size = new Vector3(bc_X * 1.25f, bc_Y * 2f, bc_Z * 1.25f);
+        BC.isTrigger = true;
+
+
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            if (bullet_Spawn_Point == null)
+            {
+                barrel = gameObject.transform.GetChild(0).gameObject;
+                bullet_Spawn_Point = barrel.transform.GetChild(0).GetChild(0);
+            }
+        }
         if (weapon_Eqip)
         {
             WeaponMode();
@@ -93,6 +93,15 @@ public class BaseGun : MonoBehaviour
     }
     void WeaponMode()
     {
+        if (bullet_Spawn_Point == null)
+        {
+            barrel = gameObject.transform.GetChild(0).gameObject;
+            bullet_Spawn_Point = barrel.transform.GetChild(0).GetChild(0);
+        }
+        if (bullet_Spawn_Point == null)
+        {
+            bullet_Spawn_Point = gameObject.transform.GetChild(0).Find("BulletSpawn");
+        }
         //diffent weapon setting
         switch (the_Weapon_Mode)
         {
