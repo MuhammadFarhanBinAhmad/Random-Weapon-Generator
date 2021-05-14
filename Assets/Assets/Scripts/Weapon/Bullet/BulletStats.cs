@@ -174,20 +174,6 @@ public class BulletStats : MonoBehaviour
                         Destroy();
                         break;
                     }
-                case 8:
-                    {
-                        print("Flyer");
-                        other.GetComponent<BaseEnemy>().TakingDamage(bullet_Damage);
-                        Destroy();
-                        break;
-                    }
-                case 9:
-                    {
-                        print("Tracer");
-                        other.GetComponent<BaseEnemy>().TakingDamage(bullet_Damage);
-                        Destroy();
-                        break;
-                    }
             }
         }
         else if (is_Rocket && other.gameObject.layer == LayerMask.NameToLayer("Ground"))

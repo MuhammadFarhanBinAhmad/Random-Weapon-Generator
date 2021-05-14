@@ -102,7 +102,6 @@ public class BaseEnemy : MonoBehaviour
 
     void RemoveDebuff()
     {
-        print("normal");
         is_Stunned = false;
         agent.speed = the_Enemy_Stats.speed;
     }

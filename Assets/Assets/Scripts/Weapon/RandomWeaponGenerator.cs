@@ -28,6 +28,8 @@ public class RandomWeaponGenerator : MonoBehaviour
     public List<GameObject> b_doublebarrelshotgun = new List<GameObject>();
     public List<GameObject> b_machinegun = new List<GameObject>();
 
+    public GameObject w_Spawn_Point;
+
     int the_Weapon_Body_Number;
     GameObject the_Weapon_Body_GO;
     //Stats//
@@ -37,13 +39,11 @@ public class RandomWeaponGenerator : MonoBehaviour
     /// 2 - Auto
     /// </summary>
     /// 
-    public int the_Weapon_Type;
-
-    int the_Weapon_Mode;
-
-    int the_Round_Type;
-
-    int the_Element_Type;
+    internal int the_Weapon_Type;
+    internal int the_Weapon_Mode;
+    internal int the_Weapon_Rarity;
+    internal int the_Round_Type;
+    internal int the_Element_Type;
 
     //STATS//
 
@@ -76,107 +76,452 @@ public class RandomWeaponGenerator : MonoBehaviour
     /// 4 - DoubleBarrrel_ShotGun
     /// 5 - MachineGun
     /// 6 - Rocket
-    void CreateWeaponStats(int WT)
+    internal void CreateWeaponStats(int WT)
     {
         //the_Weapon_Body_Number
-        //Set up Stats
+        //Set up Stats base on weapon type and rarity
+        //1st case:Weapon Type
+        //2nd case:Rarity
         switch (the_Weapon_Type)
         {
             case 0:
                 {
                     the_Weapon_Body_Number = Random.Range(0, b_pistol.Count);
                     the_Weapon_Body_GO = b_pistol[the_Weapon_Body_Number];
-                    reload_Time = 1;
-                    fire_Rate = 1;
-                    total_Ammo = 100;
-                    mag_Capacity = 10;
-                    min_Damage = 10;
-                    max_Damage = 20;
+                    switch (the_Weapon_Rarity)
+                    {
+                        case 0:
+                            {
+                                reload_Time = 1;
+                                fire_Rate = 1;
+                                total_Ammo = 100;
+                                mag_Capacity = 10;
+                                min_Damage = 10;
+                                max_Damage = 20;
+                                break;
+                            }
+                        case 1:
+                            {
+                                reload_Time = 1;
+                                fire_Rate = 1;
+                                total_Ammo = 100;
+                                mag_Capacity = 10;
+                                min_Damage = 25;
+                                max_Damage = 35;
+                                break;
+                            }
+                        case 2:
+                            {
+                                reload_Time = 1;
+                                fire_Rate = 1;
+                                total_Ammo = 100;
+                                mag_Capacity = 10;
+                                min_Damage = 40;
+                                max_Damage = 55;
+                                break;
+                            }
+                        case 3:
+                            {
+                                reload_Time = 1;
+                                fire_Rate = 1;
+                                total_Ammo = 100;
+                                mag_Capacity = 10;
+                                min_Damage = 60;
+                                max_Damage = 80;
+                                break;
+                            }
+                        case 4:
+                            {
+                                reload_Time = 1;
+                                fire_Rate = 1;
+                                total_Ammo = 100;
+                                mag_Capacity = 10;
+                                min_Damage = 100;
+                                max_Damage = 125;
+                                break;
+                            }
+
+                    }
                     break;
                 }
             case 1:
                 {
                     the_Weapon_Body_Number = Random.Range(0, b_submachinegun.Count);
                     the_Weapon_Body_GO = b_submachinegun[the_Weapon_Body_Number];
-                    reload_Time = 1.25f;
-                    fire_Rate = 8f;
-                    total_Ammo = 250;
-                    mag_Capacity = 25;
-                    min_Damage = 15;
-                    max_Damage = 25;
+                    switch (the_Weapon_Rarity)
+                    {
+                        case 0:
+                            {
+
+                                reload_Time = 1.25f;
+                                fire_Rate = 8f;
+                                total_Ammo = 250;
+                                mag_Capacity = 25;
+                                min_Damage = 5;
+                                max_Damage = 15;
+                                break;
+                            }
+                        case 1:
+                            {
+
+                                reload_Time = 1.25f;
+                                fire_Rate = 8f;
+                                total_Ammo = 250;
+                                mag_Capacity = 25;
+                                min_Damage = 20;
+                                max_Damage = 35;
+                                break;
+                            }
+                        case 2:
+                            {
+
+                                reload_Time = 1.25f;
+                                fire_Rate = 8f;
+                                total_Ammo = 250;
+                                mag_Capacity = 25;
+                                min_Damage = 40;
+                                max_Damage = 55;
+                                break;
+                            }
+                        case 3:
+                            {
+
+                                reload_Time = 1.25f;
+                                fire_Rate = 8f;
+                                total_Ammo = 250;
+                                mag_Capacity = 25;
+                                min_Damage = 60;
+                                max_Damage = 75;
+                                break;
+                            }
+                        case 4:
+                            {
+
+                                reload_Time = 1.25f;
+                                fire_Rate = 8f;
+                                total_Ammo = 250;
+                                mag_Capacity = 25;
+                                min_Damage = 80;
+                                max_Damage = 100;
+                                break;
+                            }
+                    }
                     break;
                 }
             case 2:
                 {
                     the_Weapon_Body_Number = Random.Range(0, b_rifle.Count);
                     the_Weapon_Body_GO = b_rifle[the_Weapon_Body_Number];
-                    reload_Time = 1.25f;
-                    fire_Rate = 4f;
-                    total_Ammo = 300;
-                    mag_Capacity = 30;
-                    min_Damage = 20;
-                    max_Damage = 35;
+                    switch (the_Weapon_Rarity)
+                    {
+                        case 0:
+                            {
+                                reload_Time = 1.25f;
+                                fire_Rate = 4f;
+                                total_Ammo = 300;
+                                mag_Capacity = 30;
+                                min_Damage = 40;
+                                max_Damage = 55;
+                                break;
+                            }
+                        case 1:
+                            {
+                                reload_Time = 1.25f;
+                                fire_Rate = 4f;
+                                total_Ammo = 300;
+                                mag_Capacity = 30;
+                                min_Damage = 60;
+                                max_Damage = 75;
+                                break;
+                            }
+                        case 2:
+                            {
+                                reload_Time = 1.25f;
+                                fire_Rate = 4f;
+                                total_Ammo = 300;
+                                mag_Capacity = 30;
+                                min_Damage = 80;
+                                max_Damage = 95;
+                                break;
+                            }
+                        case 3:
+                            {
+                                reload_Time = 1.25f;
+                                fire_Rate = 4f;
+                                total_Ammo = 300;
+                                mag_Capacity = 30;
+                                min_Damage = 100;
+                                max_Damage = 125;
+                                break;
+                            }
+                        case 4:
+                            {
+                                reload_Time = 1.25f;
+                                fire_Rate = 4f;
+                                total_Ammo = 300;
+                                mag_Capacity = 30;
+                                min_Damage = 130;
+                                max_Damage = 150;
+                                break;
+                            }
+                    }
                     break;
                 }
             case 3:
                 {
                     the_Weapon_Body_Number = Random.Range(0, b_shotgun.Count);
                     the_Weapon_Body_GO = b_shotgun[the_Weapon_Body_Number];
-                    reload_Time = .75f;
-                    fire_Rate = .7f;
-                    total_Ammo = 80;
-                    mag_Capacity = 8;
-                    min_Damage = 10;
-                    max_Damage = 20;
-                    rounds_Shot = 10;
+                    switch (the_Weapon_Rarity)
+                    {
+                        case 0:
+                            {
+                                reload_Time = .75f;
+                                fire_Rate = .7f;
+                                total_Ammo = 80;
+                                mag_Capacity = 8;
+                                min_Damage = 10;
+                                max_Damage = 20;
+                                rounds_Shot = 10;
+                                break;
+                            }
+                        case 1:
+                            {
+                                reload_Time = .75f;
+                                fire_Rate = .7f;
+                                total_Ammo = 80;
+                                mag_Capacity = 8;
+                                min_Damage = 25;
+                                max_Damage = 35;
+                                rounds_Shot = 10;
+                                break;
+                            }
+                        case 2:
+                            {
+                                reload_Time = .75f;
+                                fire_Rate = .7f;
+                                total_Ammo = 80;
+                                mag_Capacity = 8;
+                                min_Damage = 40;
+                                max_Damage = 60;
+                                rounds_Shot = 10;
+                                break;
+                            }
+                        case 3:
+                            {
+                                reload_Time = .75f;
+                                fire_Rate = .7f;
+                                total_Ammo = 80;
+                                mag_Capacity = 8;
+                                min_Damage = 10;
+                                max_Damage = 65;
+                                rounds_Shot = 75;
+                                break;
+                            }
+                        case 4:
+                            {
+                                reload_Time = .75f;
+                                fire_Rate = .7f;
+                                total_Ammo = 80;
+                                mag_Capacity = 8;
+                                min_Damage = 10;
+                                max_Damage = 80;
+                                rounds_Shot = 105;
+                                break;
+                            }
+                    }
                     break;
                 }
             case 4:
                 {
                     the_Weapon_Body_Number = Random.Range(0, b_doublebarrelshotgun.Count);
                     the_Weapon_Body_GO = b_doublebarrelshotgun[the_Weapon_Body_Number];
-                    reload_Time = .75f;
-                    fire_Rate = .7f;
-                    total_Ammo = 40;
-                    mag_Capacity = 2;
-                    min_Damage = 15;
-                    max_Damage = 35;
-                    rounds_Shot = 30;
+                    switch (the_Weapon_Rarity)
+                    {
+                        case 0:
+                            {
+                                reload_Time = .75f;
+                                fire_Rate = .7f;
+                                total_Ammo = 40;
+                                mag_Capacity = 2;
+                                min_Damage = 15;
+                                max_Damage = 25;
+                                rounds_Shot = 30;
+                                break;
+                            }
+                        case 1:
+                            {
+                                reload_Time = .75f;
+                                fire_Rate = .7f;
+                                total_Ammo = 40;
+                                mag_Capacity = 2;
+                                min_Damage = 30;
+                                max_Damage = 40;
+                                rounds_Shot = 30;
+                                break;
+                            }
+                        case 2:
+                            {
+                                reload_Time = .75f;
+                                fire_Rate = .7f;
+                                total_Ammo = 40;
+                                mag_Capacity = 2;
+                                min_Damage = 45;
+                                max_Damage = 55;
+                                rounds_Shot = 30;
+                                break;
+                            }
+                        case 3:
+                            {
+                                reload_Time = .75f;
+                                fire_Rate = .7f;
+                                total_Ammo = 40;
+                                mag_Capacity = 2;
+                                min_Damage = 60;
+                                max_Damage = 75;
+                                rounds_Shot = 30;
+                                break;
+                            }
+                        case 4:
+                            {
+                                reload_Time = .75f;
+                                fire_Rate = .7f;
+                                total_Ammo = 40;
+                                mag_Capacity = 2;
+                                min_Damage = 80;
+                                max_Damage = 100;
+                                rounds_Shot = 30;
+                                break;
+                            }
+                    }
                     break;
                 }
             case 5:
                 {
                     the_Weapon_Body_Number = Random.Range(0, b_machinegun.Count);
                     the_Weapon_Body_GO = b_machinegun[the_Weapon_Body_Number];
-                    reload_Time = 1.5f;
-                    fire_Rate = 6f;
-                    total_Ammo = 400;
-                    mag_Capacity = 100;
-                    min_Damage = 25;
-                    max_Damage = 40;
+                    switch (the_Weapon_Rarity)
+                    {
+                        case 0:
+                            {
+                                reload_Time = 1.5f;
+                                fire_Rate = 6f;
+                                total_Ammo = 400;
+                                mag_Capacity = 100;
+                                min_Damage = 25;
+                                max_Damage = 35;
+                                break;
+                            }
+                        case 1:
+                            {
+                                reload_Time = 1.5f;
+                                fire_Rate = 6f;
+                                total_Ammo = 400;
+                                mag_Capacity = 100;
+                                min_Damage = 40;
+                                max_Damage = 60;
+                                break;
+                            }
+                        case 2:
+                            {
+                                reload_Time = 1.5f;
+                                fire_Rate = 6f;
+                                total_Ammo = 400;
+                                mag_Capacity = 100;
+                                min_Damage = 65;
+                                max_Damage = 80;
+                                break;
+                            }
+                        case 3:
+                            {
+                                reload_Time = 1.5f;
+                                fire_Rate = 6f;
+                                total_Ammo = 400;
+                                mag_Capacity = 100;
+                                min_Damage = 90;
+                                max_Damage = 100;
+                                break;
+                            }
+                        case 4:
+                            {
+                                reload_Time = 1.5f;
+                                fire_Rate = 6f;
+                                total_Ammo = 400;
+                                mag_Capacity = 100;
+                                min_Damage = 105;
+                                max_Damage = 130;
+                                break;
+                            }
+                    }
                     break;
                 }
             case 6:
                 {
-                    reload_Time = 1.5f;
-                    fire_Rate = 1;
-                    total_Ammo = 10;
-                    mag_Capacity = 1;
-                    min_Damage = 150;
-                    max_Damage = 300;
+                    switch (the_Weapon_Rarity)
+                    {
+                        case 0:
+                            {
+                                reload_Time = 1.5f;
+                                fire_Rate = 1;
+                                total_Ammo = 10;
+                                mag_Capacity = 1;
+                                min_Damage = 150;
+                                max_Damage = 300;
+                                break;
+                            }
+                        case 1:
+                            {
+                                reload_Time = 1.5f;
+                                fire_Rate = 1;
+                                total_Ammo = 10;
+                                mag_Capacity = 1;
+                                min_Damage = 400;
+                                max_Damage = 550;
+                                break;
+                            }
+                        case 2:
+                            {
+                                reload_Time = 1.5f;
+                                fire_Rate = 1;
+                                total_Ammo = 10;
+                                mag_Capacity = 1;
+                                min_Damage = 575;
+                                max_Damage = 650;
+                                break;
+                            }
+                        case 3:
+                            {
+                                reload_Time = 1.5f;
+                                fire_Rate = 1;
+                                total_Ammo = 10;
+                                mag_Capacity = 1;
+                                min_Damage = 700;
+                                max_Damage = 850;
+                                break;
+                            }
+                        case 4:
+                            {
+                                reload_Time = 1.5f;
+                                fire_Rate = 1;
+                                total_Ammo = 10;
+                                mag_Capacity = 1;
+                                min_Damage = 950;
+                                max_Damage = 1200;
+                                break;
+                            }
+                    }
                     break;
                 }
         }
-        if (the_Weapon_Type !=6)
+        if (the_Weapon_Type != 6)
         {
-            AmmoType(Random.Range(0, 9));//excluding rocket
+            RoundType(the_Round_Type);//excluding rocket
         }
         else
         {
-            ElementalType(Random.Range(0, 5));//for rocket 
+            ElementalType(the_Element_Type);//for rocket 
         }
     }
-    void AmmoType(int RT)
+    void RoundType(int RT)
     {
         /// <Type of Round>
         /// 0 - Normal
@@ -187,13 +532,17 @@ public class RandomWeaponGenerator : MonoBehaviour
         /// 5 - Healing - gain small bit of health from hit enemy
         /// 6 - Payback - A succesful hit return 1 round back
         /// 7 - QuickPace - Every Succesful hit make the player faster
-        /// 8 - Flyer - Make Player jump higher
-        /// 9 - Tracer - Home to the nearest enemy
+        /// 8 - Flyer - Make Player jump higher*Remove
+        /// 9 - Tracer - Home to the nearest enemy*Remove
         the_Round_Type = RT;
 
         //Set Ammo type
         switch(RT)
         {
+            case 0:
+                {
+                    break;
+                }
             case 1:
                 {
                     if (!is_Rocket)
@@ -214,37 +563,22 @@ public class RandomWeaponGenerator : MonoBehaviour
                 }
             case 4:
                 {
-                    weapon_name += "Punch out ";
+                    weapon_name += "Healing ";
                     break;
                 }
             case 5:
                 {
-                    weapon_name += "Healing ";
+                    weapon_name += "Payback ";
                     break;
                 }
             case 6:
                 {
-                    weapon_name += "Payback ";
-                    break;
-                }
-            case 7:
-                {
                     weapon_name += "QuickPace ";
-                    break;
-                }
-            case 8:
-                {
-                    weapon_name += "Flyer ";
-                    break;
-                }
-            case 9:
-                {
-                    weapon_name += "Tracer ";
                     break;
                 }
         }
 
-        ElementalType(Random.Range(0,6));
+        ElementalType(the_Element_Type);
 
     }
     void ElementalType(int ET)
@@ -350,7 +684,7 @@ public class RandomWeaponGenerator : MonoBehaviour
     }
     void SpawnWeapon()
     {
-        GameObject GO = Instantiate(the_Weapon_Body_GO, transform.position, transform.rotation);
+        GameObject GO = Instantiate(the_Weapon_Body_GO, w_Spawn_Point.transform.position, w_Spawn_Point.transform.rotation);
         BaseGun NewWeapon = GO.GetComponent<BaseGun>();
         NewWeapon.reload_Time = reload_Time;
         NewWeapon.fire_Rate = fire_Rate;
@@ -358,6 +692,7 @@ public class RandomWeaponGenerator : MonoBehaviour
         NewWeapon.gun_Total_Mag_Capacity = mag_Capacity;
         NewWeapon.min_Damage = min_Damage;
         NewWeapon.max_Damage = max_Damage;
+        NewWeapon.the_Weapon_Type = the_Weapon_Type;
         NewWeapon.the_Weapon_Mode = the_Weapon_Mode;
         NewWeapon.the_Round_Type = the_Round_Type;
         NewWeapon.the_Element_Type = the_Element_Type;

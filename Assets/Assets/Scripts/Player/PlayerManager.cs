@@ -9,8 +9,8 @@ public class PlayerManager : MonoBehaviour
     //Basic
     public BasicCharacterDataStats the_Basic_Stats;
     public float speed_Movement;
-    public float health_Player; 
-
+    public float health_Player;
+    public int money_Total;
     //Runnning
     float total_Stamina = 10;
     float speed_Multiplier = 1.5f;
@@ -28,13 +28,16 @@ public class PlayerManager : MonoBehaviour
     //Weapon Change
     public List<BaseGun> weapon_Inventory = new List<BaseGun>();
     public int current_Weapon = 0;
+    public List<GameObject> weapon_Transform = new List<GameObject>();
     //WeaponPickup
     public BaseGun pickable_Weapon;
     //Flash Light//
-    /*public GameObject the_Flash_Light;
-    bool fl_On;*/
 
     PlayerUIHUD the_Player_UI_HUD;
+    //GUN-INATOR
+    public GUNINATORGunCreation the_GUNINATOR;
+    public GameObject press_E;
+
 
     private void Start()
     {
@@ -93,8 +96,8 @@ public class PlayerManager : MonoBehaviour
             }
             pickable_Weapon.GetComponent<BaseGun>().weapon_Eqip = true;
             //Set up position
-            pickable_Weapon.transform.parent = GameObject.Find("Weapons").transform;
-            pickable_Weapon.transform.position = GameObject.Find("Weapons").transform.position;
+            pickable_Weapon.transform.parent = weapon_Transform[pickable_Weapon.the_Weapon_Type].transform;
+            pickable_Weapon.transform.position = weapon_Transform[pickable_Weapon.the_Weapon_Type].transform.position;
             pickable_Weapon.transform.localRotation = Quaternion.Euler(0, 0, 0);
             //Set up weapon physics
             pickable_Weapon.GetComponent<Rigidbody>().isKinematic = true;
@@ -103,6 +106,11 @@ public class PlayerManager : MonoBehaviour
             pickable_Weapon.GetComponent<BoxCollider>().enabled =false;
             //Reset picking up values
             WeaponPickedUpOrLeft();
+        }
+        //ACCESS STORE//
+        if (the_GUNINATOR !=null && Input.GetKeyDown(KeyCode.E))
+        {
+            the_GUNINATOR.OpenStore();
         }
     }
 
@@ -209,9 +217,20 @@ public class PlayerManager : MonoBehaviour
         {
             WeaponDetected(other.GetComponent<BaseGun>());
         }
+        if (other.GetComponent<GUNINATORGunCreation>() != null)
+        {
+            the_GUNINATOR = other.GetComponent<GUNINATORGunCreation>();
+            press_E.SetActive(true);
+        }
     }
     private void OnTriggerExit(Collider other)
     {
         WeaponPickedUpOrLeft();
+
+        if (the_GUNINATOR !=null)
+        {
+            the_GUNINATOR = null;
+            press_E.SetActive(false);
+        }
     }
 }

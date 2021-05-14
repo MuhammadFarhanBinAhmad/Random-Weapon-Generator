@@ -16,6 +16,7 @@ public class BaseGun : MonoBehaviour
     [Header("Weapon features")]
     //TYPE//
     public int the_Weapon_Mode;
+    internal int the_Weapon_Type;
 
     ///*Weapon(For Special Weapon only)
     public bool is_Shotgun;

@@ -51,7 +51,6 @@ public class WeaponBody : MonoBehaviour
     {
         GameObject B = Instantiate(w_Barrel[SB], t_Barrel.position, t_Barrel.rotation);
         B.transform.parent = t_Barrel.transform;
-        print(SB);
     }
     void SpawnStock(int SS)
     {
