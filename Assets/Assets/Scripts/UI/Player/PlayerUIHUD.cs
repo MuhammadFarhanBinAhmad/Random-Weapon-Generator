@@ -5,13 +5,20 @@ using TMPro;
 
 public class PlayerUIHUD : MonoBehaviour
 {
-    //PLAYER HUG//
-    public TextMeshProUGUI ui_Weapon_Ammo,ui_Weapon_Name, ui_Total_Ammo;
+
+    PlayerManager the_PM;
+    //PLAYER HUD//
+    public TextMeshProUGUI ui_Weapon_Ammo,ui_Weapon_Name, ui_Total_Ammo,ui_Total_Coins;
     public BaseGun current_Weapon;
     //PLAYER GAME UI//
     public GameObject PauseMenu;
     bool menu_Open;
     public TextMeshProUGUI pickable_Weapon_Name_GUI;
+
+    private void Start()
+    {
+        the_PM = FindObjectOfType<PlayerManager>();
+    }
 
     private void Update()
     {
@@ -33,6 +40,7 @@ public class PlayerUIHUD : MonoBehaviour
                 Time.timeScale = 1;
             }
         }
+        ui_Total_Coins.text = "X" + the_PM.money_Total.ToString();
     }
 
     internal void AmmoUpdate(int i)

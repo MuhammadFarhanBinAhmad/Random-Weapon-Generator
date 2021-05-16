@@ -123,9 +123,9 @@ public class GUNINATORGunCreation : MonoBehaviour
             w_Type = Random.Range(0, 7);
             print(w_Type);
             the_RWG.the_Weapon_Type = w_Type;
-            the_RWG.the_Weapon_Rarity = Random.Range(0, 1);
-            the_RWG.the_Element_Type = Random.Range(0, 1);
-            the_RWG.the_Round_Type = Random.Range(0, 1);
+            the_RWG.the_Weapon_Rarity = Random.Range(0, 4);
+            the_RWG.the_Element_Type = Random.Range(0, 5);
+            the_RWG.the_Round_Type = Random.Range(0, 6);
 
             FindObjectOfType<PlayerManager>().money_Total -= w_Total_Cost;
 

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class RandomWeaponGenerator : MonoBehaviour
 {
     /// <Type of Weapon>
@@ -66,6 +65,8 @@ public class RandomWeaponGenerator : MonoBehaviour
         {
             CreateWeaponStats(the_Weapon_Type);
         }
+
+
     }
 
     /// <Type of Weapon>

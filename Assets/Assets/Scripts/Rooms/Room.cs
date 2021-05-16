@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class Room : MonoBehaviour
 {
 
     RoomSpawner the_RM;
+    NavMeshSurface the_NMS;
 
     public bool door_Lock;
     public bool room_Completed;
@@ -15,6 +16,10 @@ public class Room : MonoBehaviour
     private void Start()
     {
         the_RM = FindObjectOfType<RoomSpawner>();
+        the_NMS = FindObjectOfType<NavMeshSurface>();
+
+
+        the_NMS.BuildNavMesh();
     }
 
     void Update()
@@ -23,6 +28,12 @@ public class Room : MonoBehaviour
         {
             SpawnRoom();
             next_Room_Spawn = true;
+            //For test only//
+            if (FindObjectOfType<RoomSpawner>() != null)
+            {
+                FindObjectOfType<RoomSpawner>().room_Currently_Spawn.Add(this);
+                FindObjectOfType<RoomSpawner>().CheckTotalRoom();
+            }
         }
     }
 
