@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1776944536293263911}
   - component: {fileID: 2613225830504467313}
   - component: {fileID: 517948532090844424}
+  - component: {fileID: 396563024102631271}
   m_Layer: 0
   m_Name: corridor_wall
   m_TagString: Untagged
@@ -97,6 +98,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.099999875, y: 1.6017417, z: 1}
   m_Center: {x: 0.45000103, y: 0.80087084, z: 0.00000047683716}
+--- !u!208 &396563024102631271
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840306484581577413}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.05, y: 0.4, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.45000002, y: 0.4, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1858987137004700375
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,6 +203,7 @@ GameObject:
   - component: {fileID: 1369271584660371590}
   - component: {fileID: 3143865806686160062}
   - component: {fileID: 4181743584067397796}
+  - component: {fileID: 3091700936417443615}
   m_Layer: 0
   m_Name: corridor_wall
   m_TagString: Untagged
@@ -271,6 +289,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.099999875, y: 1.5946468, z: 1}
   m_Center: {x: 0.45000103, y: 0.7973234, z: 0.00000047683716}
+--- !u!208 &3091700936417443615
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3148741602647417573}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.05, y: 0.4, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.45000002, y: 0.4, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &6149112087752117248
 GameObject:
   m_ObjectHideFlags: 0

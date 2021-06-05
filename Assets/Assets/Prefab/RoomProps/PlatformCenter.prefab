@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1624562493966570870}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlatformCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2143795163288080332}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 170.48009, y: 31.172436, z: -72.24406}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 1431850412358013879}
   - component: {fileID: 5361702592788651350}
   - component: {fileID: 5729581344888492900}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platform_center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,8 +58,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6922964422683029267}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 30, y: 30, z: 30}
+  m_LocalPosition: {x: -45.00002, y: 0, z: -14.999901}
+  m_LocalScale: {x: 120, y: 30, z: 120}
   m_Children: []
   m_Father: {fileID: 1624562493966570870}
   m_RootOrder: 0

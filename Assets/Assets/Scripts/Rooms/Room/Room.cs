@@ -5,7 +5,7 @@ using UnityEngine.AI;
 public class Room : MonoBehaviour
 {
     RoomSpawner the_RS;
-    NavMeshSurface the_NMS;
+    public NavMeshSurface the_NMS;
 
     public bool door_Lock;
     public bool room_Completed;
@@ -17,7 +17,7 @@ public class Room : MonoBehaviour
     {
         the_RS = FindObjectOfType<RoomSpawner>();
         the_NMS = FindObjectOfType<NavMeshSurface>();
-        //the_NMS.BuildNavMesh();
+        the_NMS.BuildNavMesh();
     }
 
     void Update()

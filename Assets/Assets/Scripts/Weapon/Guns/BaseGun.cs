@@ -40,10 +40,17 @@ public class BaseGun : MonoBehaviour
     [Header("Damage")]
     public int min_Damage, max_Damage;
 
+    [Header("Barrel & Bullet")]
     public GameObject bullet;
     public GameObject barrel;
     public Transform bullet_Spawn_Point;
-    
+
+    [Header("SFX & VFX")]
+
+    public GameObject muzzle_Flash;
+    public List<AudioClip> weapon_Shoot_Sound = new List<AudioClip>();
+    public AudioSource weapon_AudioSource;
+
     internal bool weapon_Eqip;
 
     private void Start()
@@ -57,6 +64,7 @@ public class BaseGun : MonoBehaviour
         BC.size = new Vector3(bc_X * 1.25f, bc_Y * 2f, bc_Z * 1.25f);
         BC.isTrigger = true;
 
+        weapon_AudioSource.clip = weapon_Shoot_Sound[the_Weapon_Type];
 
     }
 
@@ -98,6 +106,7 @@ public class BaseGun : MonoBehaviour
         {
             barrel = gameObject.transform.GetChild(0).gameObject;
             bullet_Spawn_Point = barrel.transform.GetChild(0).GetChild(0);
+            muzzle_Flash = barrel.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
         }
         if (bullet_Spawn_Point == null)
         {
@@ -249,6 +258,7 @@ public class BaseGun : MonoBehaviour
                         }
                     }
                 }
+                muzzle_Flash.GetComponent<ParticleSystem>().Play();
                 gun_current_Mag_Capacity--;
                 the_Player_UI_HUD.AmmoUpdate(the_Player_Manager.current_Weapon);
             }

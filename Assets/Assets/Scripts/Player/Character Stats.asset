@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Character Stats
   m_EditorClassIdentifier: 
   health: 100
-  speed: 150
+  speed: 90

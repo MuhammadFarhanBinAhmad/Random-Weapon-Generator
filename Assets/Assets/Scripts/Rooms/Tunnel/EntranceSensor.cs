@@ -5,8 +5,8 @@ using UnityEngine;
 public class EntranceSensor : MonoBehaviour
 {
     ///Script summary///
-    //To despawn the previous room
-
+    ///Open and close door
+    ///
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<PlayerManager>() != null)
