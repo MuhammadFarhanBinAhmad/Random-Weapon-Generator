@@ -7,12 +7,21 @@ public class EntranceSensor : MonoBehaviour
     ///Script summary///
     ///Open and close door
     ///
+    /// 
+    ///
+
+    public Animator the_anim;
+
+    private void Start()
+    {
+        the_anim = GetComponent<Animator>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<PlayerManager>() != null)
+        if (other.GetComponent<PlayerManager>())
         {
-            FindObjectOfType<RoomSpawner>().DeSpawnRoom();
-            //transform.parent.gameObject.SetActive(false);
+            the_anim.SetTrigger("OpenDoor");
         }
     }
 }

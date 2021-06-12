@@ -118,7 +118,7 @@ public class PlayerManager : MonoBehaviour
     {
 
         float H = Input.GetAxisRaw("Horizontal");
-        float V = Input.GetAxisRaw("Vertical");
+        float V = Input.GetAxisRaw("Vertical") ;
         //Movement
         Vector3 move = transform.right * H + transform.forward * V;
         the_CC.Move(move * speed_Movement * Time.deltaTime);

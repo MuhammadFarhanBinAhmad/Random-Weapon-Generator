@@ -6,51 +6,46 @@ public class Room : MonoBehaviour
 {
     RoomSpawner the_RS;
     public NavMeshSurface the_NMS;
+    public EntranceSensor the_ES;
 
     public bool door_Lock;
     public bool room_Completed;
 
     bool next_Room_Spawn;
-    //public Transform t_Spawner;*In Tunnel now
 
+    public List<GameObject> enemy_Left = new List<GameObject>();
     private void Start()
     {
         the_RS = FindObjectOfType<RoomSpawner>();
         the_NMS = FindObjectOfType<NavMeshSurface>();
-        the_NMS.BuildNavMesh();
-    }
+        //the_NMS.BuildNavMesh();
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O) && !next_Room_Spawn && room_Completed)
+        foreach(GameObject GO in GameObject.FindGameObjectsWithTag("Enemy"))
         {
-            next_Room_Spawn = true;
-            //the_RS.SpawnTunnel();
-            //the_RS.SpawnRoom();
-            //the_RS.CheckTotalRoom();
-            /*//For test only//
-            if (FindObjectOfType<RoomSpawner>() != null)
+            if (GO.tag == "Enemy")
             {
-                FindObjectOfType<RoomSpawner>().room_Currently_Spawn.Add(this);
-                FindObjectOfType<RoomSpawner>().CheckTotalRoom();
-            }*/
+                enemy_Left.Add(GO);
+            }
         }
     }
-
-    /*void SpawnRoom()
+    public void CheckEnemy()
     {
-        if (room_Completed)
+        if (enemy_Left.Count == 0)
         {
-            int r = Random.Range(0, the_RP.room_Pool.Count);
-            if (!the_RP.room_Pool[r].activeInHierarchy)
-            {
-                the_RP.room_Pool[r].transform.position = 
-            }
+            room_Completed = true;
         }
         else
         {
-            print("Objective not completed");
+            print(enemy_Left.Count);
         }
-    }*/
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<PlayerManager>() !=null)
+        {
+            the_ES.the_anim.SetTrigger("CloseDoor");
+        }
+    }
 
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class AmmoPool : MonoBehaviour
 {
     public GameObject bullet;
-    public int pooled_Amount = 60;
+    public int pooled_Amount = 100;
     internal List<GameObject> bullet_Pool = new List<GameObject>();
 
     private void Start()

@@ -28,13 +28,13 @@ public class RoomSpawner : MonoBehaviour
         SpawnRoom();
 
     }
-    void Update()
+    /*void Update()
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
             SpawnRoom();
         }
-    }
+    }*/
 
     ///Function Job///
     ///Spawn new room
@@ -66,6 +66,8 @@ public class RoomSpawner : MonoBehaviour
         {
             Instantiate(exit_Room, room_Spawn_Point.transform.position, transform.rotation);
         }
+        print("hit");
+
     }
 
     ///Script summary///

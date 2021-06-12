@@ -176,11 +176,18 @@ public class BulletStats : MonoBehaviour
                     }
             }
         }
-        else if (is_Rocket && other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ground") || other.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
-            GameObject REE = Instantiate(rocket_Explosion_Elemental, transform.position, transform.rotation);//Rocket Explosion
-            REE.GetComponent<ElementalRocket>().element_Type = element_Type;
-            Destroy();
+            if (is_Rocket)
+            {
+                GameObject REE = Instantiate(rocket_Explosion_Elemental, transform.position, transform.rotation);//Rocket Explosion
+                REE.GetComponent<ElementalRocket>().element_Type = element_Type;
+                Destroy();
+            }
+            else
+            {
+                Destroy();
+            }
         }
         else 
         {

@@ -218,7 +218,7 @@ public class RandomWeaponGenerator : MonoBehaviour
                         case 0:
                             {
                                 reload_Time = 1.25f;
-                                fire_Rate = 4f;
+                                fire_Rate = 6f;
                                 total_Ammo = 300;
                                 mag_Capacity = 30;
                                 min_Damage = 40;
@@ -228,7 +228,7 @@ public class RandomWeaponGenerator : MonoBehaviour
                         case 1:
                             {
                                 reload_Time = 1.25f;
-                                fire_Rate = 4f;
+                                fire_Rate = 6f;
                                 total_Ammo = 300;
                                 mag_Capacity = 30;
                                 min_Damage = 60;
@@ -238,7 +238,7 @@ public class RandomWeaponGenerator : MonoBehaviour
                         case 2:
                             {
                                 reload_Time = 1.25f;
-                                fire_Rate = 4f;
+                                fire_Rate = 6f;
                                 total_Ammo = 300;
                                 mag_Capacity = 30;
                                 min_Damage = 80;
@@ -248,7 +248,7 @@ public class RandomWeaponGenerator : MonoBehaviour
                         case 3:
                             {
                                 reload_Time = 1.25f;
-                                fire_Rate = 4f;
+                                fire_Rate = 6f;
                                 total_Ammo = 300;
                                 mag_Capacity = 30;
                                 min_Damage = 100;
@@ -258,7 +258,7 @@ public class RandomWeaponGenerator : MonoBehaviour
                         case 4:
                             {
                                 reload_Time = 1.25f;
-                                fire_Rate = 4f;
+                                fire_Rate = 6f;
                                 total_Ammo = 300;
                                 mag_Capacity = 30;
                                 min_Damage = 130;
