@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7410087653746091062}
   - component: {fileID: 3498663096509008214}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: C (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2291373304121853713}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlatformStraight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5982604744734251080}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6700443056175556016}
   - component: {fileID: 4249182193872813846}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: C (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 7436359410208018277}
   - component: {fileID: 708348710853001877}
   - component: {fileID: 4272753894199384678}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platform_straight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2600220051731229518}
   - component: {fileID: 5727223244072824079}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: C
   m_TagString: Untagged
   m_Icon: {fileID: 0}

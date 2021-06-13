@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2613225830504467313}
   - component: {fileID: 517948532090844424}
   - component: {fileID: 396563024102631271}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: corridor_wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 674211394773906474}
   - component: {fileID: 159852835099162540}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6724256954898271325}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 3143865806686160062}
   - component: {fileID: 4181743584067397796}
   - component: {fileID: 3091700936417443615}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: corridor_wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3340154751717107280}
   - component: {fileID: 2488570767070465657}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: C (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1235034305039888446}
   - component: {fileID: 6874840927326876485}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: C (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6663657070495547127}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall(Single) (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,7 +433,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4728654859218386073}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall(Single) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 19571305298708225}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: t_SpawnRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 443677795792867980}
   - component: {fileID: 3741178529543891548}
   - component: {fileID: 3684553420092420675}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EntranceDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -134,7 +134,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127742575006496988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.15, y: 27.158, z: 2.894}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 127742573366910495}
@@ -1669,6 +1669,9 @@ MonoBehaviour:
   bullet: {fileID: 8135478695672827643, guid: 2c97dd7618299bc42b8c21c31a61f82c, type: 3}
   barrel: {fileID: 0}
   bullet_Spawn_Point: {fileID: 0}
+  muzzle_Flash: {fileID: 1000010254994808, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
+  weapon_Shoot_Sound: []
+  weapon_AudioSource: {fileID: 0}
 --- !u!114 &127742575006496998
 MonoBehaviour:
   m_ObjectHideFlags: 0

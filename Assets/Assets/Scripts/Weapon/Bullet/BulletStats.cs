@@ -13,10 +13,9 @@ public class BulletStats : MonoBehaviour
     public int round_Type;
     //Element Type
     public int element_Type;
-    public GameObject acid_Smoke;
+    public GameObject acid_Smoke,explosion;
     //For Rocket Only
     public bool is_Rocket;
-    public GameObject rocket_Explosion_Elemental;
 
     public LayerMask Weapon_Layer;
 
@@ -114,7 +113,7 @@ public class BulletStats : MonoBehaviour
                         {
                             print("Rocket");
                             other.GetComponent<BaseEnemy>().TakingDamage(bullet_Damage);
-                            GameObject REE = Instantiate(rocket_Explosion_Elemental, transform.position, transform.rotation);//Rocket Explosion
+                            GameObject REE = Instantiate(explosion, transform.position, transform.rotation);//Rocket Explosion
                             REE.GetComponent<ElementalRocket>().element_Type = element_Type;
                             //other.GetComponent<Rigidbody>().AddExplosionForce(1000, transform.position, 2);
                             Destroy();
@@ -176,12 +175,18 @@ public class BulletStats : MonoBehaviour
                     }
             }
         }
+        //this is not very efficient
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground") || other.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
             if (is_Rocket)
             {
-                GameObject REE = Instantiate(rocket_Explosion_Elemental, transform.position, transform.rotation);//Rocket Explosion
+                GameObject REE = Instantiate(explosion, transform.position, transform.rotation);//Rocket Explosion
                 REE.GetComponent<ElementalRocket>().element_Type = element_Type;
+                Destroy();
+            }
+            else if ( round_Type == 1)
+            {
+                GameObject REE = Instantiate(explosion, transform.position, transform.rotation);//Rocket Explosion
                 Destroy();
             }
             else

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5379048179665769821}
   - component: {fileID: 5032809350454054047}
   - component: {fileID: 1114541347764945853}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: corridor_wallCorner (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9049208898859651089}
   - component: {fileID: 5636446208653205210}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.9681396, y: 48.303463, z: 15.591492}
+  m_Size: {x: 6.15, y: 48.303463, z: 15.591492}
   m_Center: {x: -0.9840698, y: 0.0339756, z: 7.295746}
 --- !u!1 &5384435904448285651
 GameObject:
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 8919998959733024954}
   - component: {fileID: 3412594453072617464}
   - component: {fileID: 2531763388738450885}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: corridor_wallCorner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7546192332985098031}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WallCorner(Double)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224690690045470472}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6148498186947745869}
   - component: {fileID: 5776706878928583694}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: C (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.222614, y: 48.303463, z: 11.013473}
+  m_Size: {x: 4.59, y: 48.303463, z: 11.013473}
   m_Center: {x: -0.895647, y: 0.0339756, z: 5.0067015}
 --- !u!1 &8497018118418376448
 GameObject:
@@ -333,7 +333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2821076444621658693}
   - component: {fileID: 5469528138495974919}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: C (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +365,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.051089, y: 48.303463, z: 17.18245}
+  m_Size: {x: 4.71, y: 48.303463, z: 17.18245}
   m_Center: {x: -1.3098879, y: 0.0339756, z: 8.091221}
 --- !u!1 &8854707723655692119
 GameObject:
@@ -377,7 +377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2394754952431178691}
   - component: {fileID: 2063683080994497808}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: C (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,5 +409,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.4515038, y: 48.303463, z: 17.18245}
+  m_Size: {x: 4.43, y: 48.303463, z: 17.18245}
   m_Center: {x: -1.2257423, y: 0.0339756, z: 8.091221}

@@ -64,9 +64,9 @@ public class RoomSpawner : MonoBehaviour
         }
         else
         {
-            Instantiate(exit_Room, room_Spawn_Point.transform.position, transform.rotation);
+            exit_Room.transform.position = room_Spawn_Point.transform.position;
+            exit_Room.SetActive(true);
         }
-        print("hit");
 
     }
 

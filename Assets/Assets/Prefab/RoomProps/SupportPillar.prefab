@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 650097964902344652}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SupportPillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 8508442384941644711}
   - component: {fileID: 8833208871312064329}
   - component: {fileID: 3231915406543905730}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pipe_supportHigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

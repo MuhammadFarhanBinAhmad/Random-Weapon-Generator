@@ -132,8 +132,8 @@ MonoBehaviour:
   round_Type: 0
   element_Type: 0
   acid_Smoke: {fileID: 4430152650456827401, guid: a46899c349a4efd478c327674ed15b8a, type: 3}
+  explosion: {fileID: 1000013462590818, guid: ecdd96beb7f93494880c052dfccf9dc1, type: 3}
   is_Rocket: 0
-  rocket_Explosion_Elemental: {fileID: 4430152650456827401, guid: 3d91570d93edb564faad3bfb5fe9a426, type: 3}
   Weapon_Layer:
     serializedVersion: 2
     m_Bits: 768
@@ -188,20 +188,20 @@ TrailRenderer:
       - serializedVersion: 3
         time: 0
         value: 1
-        inSlope: 0
-        outSlope: 0
+        inSlope: -0.9993099
+        outSlope: -0.9993099
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.19889502
       - serializedVersion: 3
         time: 1
         value: 0
-        inSlope: -1.9759078
-        outSlope: -1.9759078
+        inSlope: -1.1658614
+        outSlope: -1.1658614
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.09116024
+        inWeight: 0.1491713
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -225,7 +225,7 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
+      atime1: 19468
       atime2: 0
       atime3: 0
       atime4: 0

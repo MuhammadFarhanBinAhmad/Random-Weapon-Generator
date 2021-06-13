@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 664792606448178993}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CorridorCross
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3453899501358042310}
   - component: {fileID: 5739036794888567068}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: C (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7926675995118716118}
   - component: {fileID: 5359378645666975153}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: C (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1347617786737461807}
   - component: {fileID: 4352500786688156420}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: C (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 3595881567658156826}
   - component: {fileID: 2578147603345825482}
   - component: {fileID: 3504622438421836412}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: corridor_cross
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 245510319002758363}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3386920636935151504}
   - component: {fileID: 7843713153965847677}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1914076641069315875}
   - component: {fileID: 7664763314723210004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: C (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

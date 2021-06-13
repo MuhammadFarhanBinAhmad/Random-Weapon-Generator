@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7947804825575872845}
   - component: {fileID: 6424880530338036954}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall(Double)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.1562805, y: 48.411087, z: 30.088257}
+  m_Size: {x: 4, y: 48.411087, z: 30.088257}
   m_Center: {x: 2.0022583, y: 24.526985, z: 12.169617}
 --- !u!1 &5434724445760643719
 GameObject:
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 6816601378029199411}
   - component: {fileID: 5454313844271934368}
   - component: {fileID: 1776910856981118940}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: corridor_wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 631975361289334501}
   - component: {fileID: 1947214765008686850}
   - component: {fileID: 3461249139746129699}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: corridor_wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

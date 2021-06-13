@@ -223,6 +223,7 @@ public class BaseGun : MonoBehaviour
                         //update Weapon UI
                         gun_current_Mag_Capacity--;
                         the_Player_UI_HUD.AmmoUpdate(the_Player_Manager.current_Weapon);
+                        muzzle_Flash.GetComponent<ParticleSystem>().Play();
                         break;
                     }
                 }
@@ -258,7 +259,6 @@ public class BaseGun : MonoBehaviour
                         }
                     }
                 }
-                muzzle_Flash.GetComponent<ParticleSystem>().Play();
                 gun_current_Mag_Capacity--;
                 the_Player_UI_HUD.AmmoUpdate(the_Player_Manager.current_Weapon);
             }
