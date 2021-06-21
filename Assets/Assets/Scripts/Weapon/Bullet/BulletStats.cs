@@ -175,6 +175,10 @@ public class BulletStats : MonoBehaviour
                     }
             }
         }
+        if (other.GetComponent<PlayerManager>() != null)
+        {
+            other.GetComponent<PlayerManager>().TakeDamage(10);
+        }
         //this is not very efficient
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground") || other.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {

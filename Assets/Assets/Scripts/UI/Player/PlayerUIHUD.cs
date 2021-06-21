@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class PlayerUIHUD : MonoBehaviour
@@ -12,8 +13,10 @@ public class PlayerUIHUD : MonoBehaviour
     public BaseGun current_Weapon;
     //PLAYER GAME UI//
     public GameObject PauseMenu;
+    public GameObject GameOverScreen;
     bool menu_Open;
     public TextMeshProUGUI pickable_Weapon_Name_GUI;
+    public Image p_HealthBar;
 
     private void Start()
     {
@@ -55,5 +58,15 @@ public class PlayerUIHUD : MonoBehaviour
     internal void PickableWeaponDetails(string WN)
     {
         pickable_Weapon_Name_GUI.text = WN;
+    }
+    internal void HealthUpdate()
+    {
+        p_HealthBar.fillAmount = the_PM.health_Player_Current / the_PM.health_Player;
+    }
+    internal void GameOver()
+    {
+        GameOverScreen.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0;
     }
 }

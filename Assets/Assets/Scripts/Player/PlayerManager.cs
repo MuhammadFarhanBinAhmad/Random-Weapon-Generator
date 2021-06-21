@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     public BasicCharacterDataStats the_Basic_Stats;
     public float speed_Movement;
     public float health_Player;
+    public float health_Player_Current;
     public int money_Total;
     //Runnning
     float total_Stamina = 10;
@@ -45,6 +46,7 @@ public class PlayerManager : MonoBehaviour
         the_CC = GetComponent<CharacterController>();
         //set up character stats
         health_Player = the_Basic_Stats.health;
+        health_Player_Current = health_Player;
         speed_Movement = the_Basic_Stats.speed;
         current_Stamina = total_Stamina;
 
@@ -190,9 +192,11 @@ public class PlayerManager : MonoBehaviour
 
     internal void TakeDamage(float Dmg)
     {
-        health_Player -= Dmg;
-        if (health_Player <= 0)
+        health_Player_Current -= Dmg;
+        the_Player_UI_HUD.HealthUpdate();
+        if (health_Player_Current <= 0)
         {
+            the_Player_UI_HUD.GameOver();
             print("Dead");
         }
     }
