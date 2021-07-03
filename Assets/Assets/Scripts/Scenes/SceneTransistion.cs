@@ -8,6 +8,10 @@ public class SceneTransistion : MonoBehaviour
 
     public void ChangeScene(string Scene)
     {
+        if (Scene == "MainMenu")
+        {
+            FindObjectOfType<AmmoPool>().DestroyAmmoPool();
+        }
         SceneManager.LoadScene(Scene);
     }
 }

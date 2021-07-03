@@ -18,7 +18,7 @@ public class RoomPool : MonoBehaviour
                 GameObject R = Instantiate(Rooms[r]);
                 room_Pool.Add(R);
                 R.SetActive(false);
-                GameObject.DontDestroyOnLoad(R);
+                //GameObject.DontDestroyOnLoad(R);
             }
         }
     }

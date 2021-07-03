@@ -19,5 +19,11 @@ public class AmmoPool : MonoBehaviour
             GameObject.DontDestroyOnLoad(O);
         }
     }
-
+    public void DestroyAmmoPool()
+    {
+        for (int i = 0; i <= pooled_Amount; i++)
+        {
+            Destroy(bullet_Pool[i]);
+        }
+    }
 }
