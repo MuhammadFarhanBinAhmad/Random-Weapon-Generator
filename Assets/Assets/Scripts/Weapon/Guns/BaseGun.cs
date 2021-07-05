@@ -224,6 +224,7 @@ public class BaseGun : MonoBehaviour
                         gun_current_Mag_Capacity--;
                         the_Player_UI_HUD.AmmoUpdate(the_Player_Manager.current_Weapon);
                         muzzle_Flash.GetComponent<ParticleSystem>().Play();
+                        the_Ammo_Pool.bullet_Pool[i].gameObject.tag = "Player";
                         break;
                     }
                 }
@@ -253,7 +254,7 @@ public class BaseGun : MonoBehaviour
                             the_Ammo_Pool.bullet_Pool[i].GetComponent<BulletStats>().bullet_Damage = Random.Range(min_Damage, max_Damage);//get damage value
                             the_Ammo_Pool.bullet_Pool[i].GetComponent<BulletStats>().round_Type = the_Round_Type;//set bullet type
                             the_Ammo_Pool.bullet_Pool[i].GetComponent<BulletStats>().ElementType(the_Element_Type);//set bullet type
-
+                            the_Ammo_Pool.bullet_Pool[i].gameObject.tag = "Player";
                             //update Weapon UI
                             break;
                         }

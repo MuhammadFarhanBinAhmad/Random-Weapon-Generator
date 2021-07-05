@@ -22,6 +22,7 @@ public class TurrentHead : MonoBehaviour
     public bool target_Lock;
     Transform current_Target;
 
+    public TurrentBattery the_TB;
     public Light mode_Light;
     float t = 0;
     float min = 1f, max = 5f;
@@ -133,7 +134,8 @@ public class TurrentHead : MonoBehaviour
                     the_Ammo_Pool.bullet_Pool[i].transform.position = bullet_Spawn_Point.transform.position;
                     the_Ammo_Pool.bullet_Pool[i].transform.rotation = bullet_Spawn_Point.transform.rotation;
                     the_Ammo_Pool.bullet_Pool[i].SetActive(true);
-                    the_Ammo_Pool.bullet_Pool[i].GetComponent<BulletStats>().bullet_Damage = 10;
+                    the_Ammo_Pool.bullet_Pool[i].GetComponent<BulletStats>().bullet_Damage = the_TB.unit_Damage;
+                    the_Ammo_Pool.bullet_Pool[i].gameObject.tag = "Enemy";
                     break;
                 }
             }

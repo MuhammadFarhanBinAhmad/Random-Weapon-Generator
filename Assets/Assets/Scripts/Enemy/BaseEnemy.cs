@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class BaseEnemy : MonoBehaviour
 {
 
-    public EnemyBasicStats the_Enemy_Stats;
+    public EnemyBasicStatsSO the_Enemy_Stats;
 
     public float speed, health, damage;
 
@@ -36,18 +36,18 @@ public class BaseEnemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (debuff_Timer > 0)
+        /*if (debuff_Timer > 0)
         {
             debuff_Timer -= Time.deltaTime;
-            ElementalDamageTimer();//reset to avoid unwanted damage
+            //ElementalDamageTimer();//reset to avoid unwanted damage
         }
         else
         {
-            RemoveDebuff();
-        }
+            //RemoveDebuff();
+        }*/
     }
 
-    public void ElementalDamageTimer()
+    /*public void ElementalDamageTimer()
     {
         //Take damage every sec due to elemental effect
         if (Time.time >= next_Time_To_Debuff)
@@ -104,7 +104,7 @@ public class BaseEnemy : MonoBehaviour
     {
         is_Stunned = false;
         agent.speed = the_Enemy_Stats.speed;
-    }
+    }*/
 
     public void TakingDamage(float dmg)
     {

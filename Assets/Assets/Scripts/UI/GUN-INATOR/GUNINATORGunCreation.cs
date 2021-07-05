@@ -127,7 +127,7 @@ public class GUNINATORGunCreation : MonoBehaviour
             the_RWG.the_Element_Type = Random.Range(0, 5);
             the_RWG.the_Round_Type = Random.Range(0, 6);
 
-            FindObjectOfType<PlayerManager>().money_Total -= w_Total_Cost;
+            //FindObjectOfType<PlayerManager>().money_Total -= w_Total_Cost;
 
             the_RWG.CreateWeaponStats(w_Type);
         }
@@ -137,7 +137,7 @@ public class GUNINATORGunCreation : MonoBehaviour
     {
         if (FindObjectOfType<PlayerManager>().money_Total >= w_Total_Cost)
         {
-            FindObjectOfType<PlayerManager>().money_Total -= w_Total_Cost;
+            
             the_RWG.CreateWeaponStats(w_Type);
         }
         else

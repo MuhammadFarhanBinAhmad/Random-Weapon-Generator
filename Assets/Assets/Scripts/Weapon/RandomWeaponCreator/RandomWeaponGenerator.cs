@@ -27,8 +27,13 @@ public class RandomWeaponGenerator : MonoBehaviour
     public List<GameObject> b_doublebarrelshotgun = new List<GameObject>();
     public List<GameObject> b_machinegun = new List<GameObject>();
 
-    public GameObject w_Spawn_Point;
+    [Header("Weapon unlockables")]
+    public List<bool> weapon_Unlock = new List<bool>();
+    public List<bool> round_Unlock = new List<bool>();
+    public List<bool> element_Unlock = new List<bool>();
 
+    public GameObject w_Spawn_Point;
+    GUNINATORGunCreation the_GUNINATORGunCreation;
     int the_Weapon_Body_Number;
     GameObject the_Weapon_Body_GO;
     //Stats//
@@ -58,7 +63,10 @@ public class RandomWeaponGenerator : MonoBehaviour
     bool is_Rocket;
 
     //public GameObject testObject;
-
+    private void Start()
+    {
+        the_GUNINATORGunCreation = GetComponent<GUNINATORGunCreation>();
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -85,12 +93,14 @@ public class RandomWeaponGenerator : MonoBehaviour
         //2nd case:Rarity
         switch (the_Weapon_Type)
         {
+            //PISTOL
             case 0:
                 {
                     the_Weapon_Body_Number = Random.Range(0, b_pistol.Count);
                     the_Weapon_Body_GO = b_pistol[the_Weapon_Body_Number];
                     switch (the_Weapon_Rarity)
                     {
+                        //Rarity
                         case 0:
                             {
                                 reload_Time = 1;
@@ -145,6 +155,7 @@ public class RandomWeaponGenerator : MonoBehaviour
                     }
                     break;
                 }
+            //SMG
             case 1:
                 {
                     the_Weapon_Body_Number = Random.Range(0, b_submachinegun.Count);
@@ -209,6 +220,7 @@ public class RandomWeaponGenerator : MonoBehaviour
                     }
                     break;
                 }
+            //Rifle
             case 2:
                 {
                     the_Weapon_Body_Number = Random.Range(0, b_rifle.Count);
@@ -268,6 +280,7 @@ public class RandomWeaponGenerator : MonoBehaviour
                     }
                     break;
                 }
+            //SHOTGUN
             case 3:
                 {
                     the_Weapon_Body_Number = Random.Range(0, b_shotgun.Count);
@@ -332,6 +345,7 @@ public class RandomWeaponGenerator : MonoBehaviour
                     }
                     break;
                 }
+            //DOUBLE BARREL SHOTGUN
             case 4:
                 {
                     the_Weapon_Body_Number = Random.Range(0, b_doublebarrelshotgun.Count);
@@ -396,6 +410,7 @@ public class RandomWeaponGenerator : MonoBehaviour
                     }
                     break;
                 }
+            //MACHINEGUN
             case 5:
                 {
                     the_Weapon_Body_Number = Random.Range(0, b_machinegun.Count);
@@ -455,6 +470,7 @@ public class RandomWeaponGenerator : MonoBehaviour
                     }
                     break;
                 }
+            //ROCKET
             case 6:
                 {
                     switch (the_Weapon_Rarity)
@@ -513,13 +529,20 @@ public class RandomWeaponGenerator : MonoBehaviour
                     break;
                 }
         }
-        if (the_Weapon_Type != 6)
+        if (weapon_Unlock[the_Weapon_Type])
         {
-            RoundType(the_Round_Type);//excluding rocket
+            if (the_Weapon_Type != 6)
+            {
+                RoundType(the_Round_Type);//excluding rocket
+            }
+            else
+            {
+                ElementalType(the_Element_Type);//for rocket 
+            }
         }
         else
         {
-            ElementalType(the_Element_Type);//for rocket 
+            print("Weapon lock");
         }
     }
     void RoundType(int RT)
@@ -578,8 +601,14 @@ public class RandomWeaponGenerator : MonoBehaviour
                     break;
                 }
         }
-
-        ElementalType(the_Element_Type);
+        if (round_Unlock[the_Round_Type])
+        {
+            ElementalType(the_Element_Type);
+        }
+        else
+        {
+            print("round lock");
+        }
 
     }
     void ElementalType(int ET)
@@ -615,19 +644,15 @@ public class RandomWeaponGenerator : MonoBehaviour
                     weapon_name += "Acid ";
                     break;
                 }
-            case 4:
-                {
-                    weapon_name += "Holy ";
-                    break;
-                }
-            case 5:
-                {
-                    weapon_name += "Dark ";
-                    break;
-                }
         }
-
-        CreateWeaponType();
+        if (element_Unlock[the_Element_Type])
+        {
+            CreateWeaponType();
+        }
+        else
+        {
+            print("Element lock");
+        }
     }
     void CreateWeaponType()
     {
@@ -685,6 +710,7 @@ public class RandomWeaponGenerator : MonoBehaviour
     }
     void SpawnWeapon()
     {
+        FindObjectOfType<PlayerManager>().money_Total -= the_GUNINATORGunCreation.w_Total_Cost;
         GameObject GO = Instantiate(the_Weapon_Body_GO, w_Spawn_Point.transform.position, w_Spawn_Point.transform.rotation);
         BaseGun NewWeapon = GO.GetComponent<BaseGun>();
         NewWeapon.reload_Time = reload_Time;
