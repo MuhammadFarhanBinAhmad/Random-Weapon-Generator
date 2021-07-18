@@ -84,7 +84,6 @@ public class PlayerManager : MonoBehaviour
                 {
                     weapon_Inventory[0].gameObject.SetActive(false);
                     current_Weapon++;
-                    print("hit0");
                 }
             }
             else
@@ -94,18 +93,19 @@ public class PlayerManager : MonoBehaviour
                 weapon_Inventory[current_Weapon].weapon_Eqip = false;
                 weapon_Inventory[current_Weapon].GetComponent<BoxCollider>().enabled = true;
                 weapon_Inventory[current_Weapon] = pickable_Weapon;
-                print("hit1");
             }
             pickable_Weapon.GetComponent<BaseGun>().weapon_Eqip = true;
             //Set up position
-            pickable_Weapon.transform.parent = weapon_Transform[pickable_Weapon.the_Weapon_Type].transform;
-            pickable_Weapon.transform.position = weapon_Transform[pickable_Weapon.the_Weapon_Type].transform.position;
+            pickable_Weapon.transform.parent = weapon_Transform[pickable_Weapon.the_Weapon_Type_Int].transform;
+            pickable_Weapon.transform.position = weapon_Transform[pickable_Weapon.the_Weapon_Type_Int].transform.position;
             pickable_Weapon.transform.localRotation = Quaternion.Euler(0, 0, 0);
             //Set up weapon physics
             pickable_Weapon.GetComponent<Rigidbody>().isKinematic = true;
             //Set up UI value
-            pickable_Weapon.GetComponent<BaseGun>().SetValue();
+            pickable_Weapon.GetComponent<BaseGun>().SetValue();//this also set up other references
             pickable_Weapon.GetComponent<BoxCollider>().enabled =false;
+            //set anim
+            pickable_Weapon.GetComponent<BaseGun>().SetAnimator();
             //Reset picking up values
             WeaponPickedUpOrLeft();
         }

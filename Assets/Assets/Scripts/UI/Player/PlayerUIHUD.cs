@@ -49,7 +49,7 @@ public class PlayerUIHUD : MonoBehaviour
     internal void AmmoUpdate(int i)
     {
         ui_Weapon_Ammo.text = current_Weapon.gun_current_Mag_Capacity.ToString();//Mag
-        ui_Total_Ammo.text = current_Weapon.gun_Total_Ammo.ToString();//Ammo
+        ui_Total_Ammo.text = current_Weapon.gun_current_Ammo.ToString();//Ammo
     }
     internal void WeaponNameUpdate(int i)
     {

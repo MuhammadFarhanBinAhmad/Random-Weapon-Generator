@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6194891565432836101}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Magazine_T
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6194891565552872489}
   - component: {fileID: 6194891565552872488}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WeaponBodyCollider
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -83,7 +83,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6194891565886980209}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Barrel_T
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -113,7 +113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6194891566067284535}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Stock_T
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 6194891567227882593}
   - component: {fileID: 6194891567227882598}
   - component: {fileID: 5597696144632966124}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1452,6 +1452,7 @@ MonoBehaviour:
   the_Player_UI_HUD: {fileID: 0}
   weapon_Name: 
   the_Weapon_Mode: 0
+  the_Weapon_Type_Int: 0
   is_Shotgun: 0
   is_Rocket: 0
   the_Round_Type: 0
@@ -1471,6 +1472,8 @@ MonoBehaviour:
   muzzle_Flash: {fileID: 1000010254994808, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
   weapon_Shoot_Sound: []
   weapon_AudioSource: {fileID: 0}
+  the_Anim: {fileID: 0}
+  weapon_Anim: []
 --- !u!114 &6194891567227882598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1527,7 +1530,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6194891567261809202}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Scope_T
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}

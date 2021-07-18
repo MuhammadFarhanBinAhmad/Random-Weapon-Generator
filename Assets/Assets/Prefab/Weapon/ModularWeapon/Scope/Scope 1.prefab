@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1654155100783082977}
   - component: {fileID: 1602312443851332003}
   - component: {fileID: 1287904616648381891}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Scope 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1565,7 +1565,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7488343309681568534}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Scope 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

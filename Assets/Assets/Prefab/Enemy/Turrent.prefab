@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 3131957218791861220}
   - component: {fileID: 6973221560988498962}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: TurrentyShiled
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -16,8 +16,7 @@ public class BaseGun : MonoBehaviour
     [Header("Weapon features")]
     //TYPE//
     public int the_Weapon_Mode;
-    internal int the_Weapon_Type;
-
+    public int the_Weapon_Type_Int;
     ///*Weapon(For Special Weapon only)
     public bool is_Shotgun;
     public bool is_Rocket;
@@ -51,6 +50,10 @@ public class BaseGun : MonoBehaviour
     public List<AudioClip> weapon_Shoot_Sound = new List<AudioClip>();
     public AudioSource weapon_AudioSource;
 
+    [Header("Animation")]
+    public Animator the_Anim;
+    public List<AnimationClip> weapon_Anim = new List<AnimationClip>();
+
     internal bool weapon_Eqip;
 
     private void Start()
@@ -63,13 +66,21 @@ public class BaseGun : MonoBehaviour
         float bc_Z = BC.size.x;
         BC.size = new Vector3(bc_X * 1.25f, bc_Y * 2f, bc_Z * 1.25f);
         BC.isTrigger = true;
-
-        weapon_AudioSource.clip = weapon_Shoot_Sound[the_Weapon_Type];
-
+        weapon_AudioSource.clip = weapon_Shoot_Sound[the_Weapon_Type_Int];
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            gameObject.layer = 11;
+            print("SceneWeapon");
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            gameObject.layer = 0;
+            print("Default");
+        }
         if (Input.GetKeyDown(KeyCode.O))
         {
             if (bullet_Spawn_Point == null)
@@ -81,7 +92,7 @@ public class BaseGun : MonoBehaviour
         if (weapon_Eqip)
         {
             WeaponMode();
-            if (gun_current_Mag_Capacity < gun_Total_Mag_Capacity && Input.GetKeyDown(KeyCode.R) && !currently_Reloading && gun_Total_Ammo > 0)
+            if (gun_current_Mag_Capacity < gun_Total_Mag_Capacity && Input.GetKeyDown(KeyCode.R) && !currently_Reloading && gun_current_Ammo > 0)
             {
                 StartReloading();
             }
@@ -99,6 +110,10 @@ public class BaseGun : MonoBehaviour
         the_Player_UI_HUD.current_Weapon = this;
         the_Player_UI_HUD.AmmoUpdate(the_Player_Manager.current_Weapon);
         the_Player_UI_HUD.WeaponNameUpdate(the_Player_Manager.current_Weapon);
+    }
+    internal void SetAnimator()
+    {
+        the_Anim = the_Player_Manager.weapon_Transform[the_Weapon_Type_Int].gameObject.GetComponent<Animator>();
     }
     void WeaponMode()
     {
@@ -144,7 +159,15 @@ public class BaseGun : MonoBehaviour
                 break;
         }
     }
-
+    public void AddAmmo(int ammoToGive)
+    {
+        gun_current_Ammo += ammoToGive;
+        if (gun_current_Ammo > gun_Total_Ammo)
+        {
+            gun_current_Ammo = gun_Total_Ammo;
+        }
+        FindObjectOfType<PlayerUIHUD>().AmmoUpdate(FindObjectOfType<PlayerManager>().current_Weapon);
+    }
     //BURST MODE ONLY
     IEnumerator NextShot()
     {
@@ -175,7 +198,7 @@ public class BaseGun : MonoBehaviour
             yield return new WaitForSeconds(reload_Time);
             //count how many ammo spent
             int AU = gun_Total_Mag_Capacity - gun_current_Mag_Capacity;
-            gun_Total_Ammo -= AU;
+            gun_current_Ammo -= AU;
             gun_current_Mag_Capacity = gun_Total_Mag_Capacity;//Refill mag
             the_Player_UI_HUD.AmmoUpdate(the_Player_Manager.current_Weapon);//Update UI
             currently_Reloading = false;
@@ -186,7 +209,7 @@ public class BaseGun : MonoBehaviour
             {
                 yield return new WaitForSeconds(reload_Time);
                 //count how many ammo spent
-                gun_Total_Ammo--;
+                gun_current_Ammo--;
                 gun_current_Mag_Capacity++;
                 the_Player_UI_HUD.AmmoUpdate(the_Player_Manager.current_Weapon);//Update UI
                 StartCoroutine("Reloading");
@@ -204,6 +227,7 @@ public class BaseGun : MonoBehaviour
         //Stop all reloading
         StopCoroutine("Reloading");
         currently_Reloading = false;
+        the_Anim.SetTrigger("Shooting");
 
         if (gun_current_Mag_Capacity > 0)
         {
@@ -224,7 +248,7 @@ public class BaseGun : MonoBehaviour
                         gun_current_Mag_Capacity--;
                         the_Player_UI_HUD.AmmoUpdate(the_Player_Manager.current_Weapon);
                         muzzle_Flash.GetComponent<ParticleSystem>().Play();
-                        the_Ammo_Pool.bullet_Pool[i].gameObject.tag = "Player";
+                        the_Ammo_Pool.bullet_Pool[i].gameObject.tag = "HurtEnemy";
                         break;
                     }
                 }
@@ -254,7 +278,7 @@ public class BaseGun : MonoBehaviour
                             the_Ammo_Pool.bullet_Pool[i].GetComponent<BulletStats>().bullet_Damage = Random.Range(min_Damage, max_Damage);//get damage value
                             the_Ammo_Pool.bullet_Pool[i].GetComponent<BulletStats>().round_Type = the_Round_Type;//set bullet type
                             the_Ammo_Pool.bullet_Pool[i].GetComponent<BulletStats>().ElementType(the_Element_Type);//set bullet type
-                            the_Ammo_Pool.bullet_Pool[i].gameObject.tag = "Player";
+                            the_Ammo_Pool.bullet_Pool[i].gameObject.tag = "HurtEnemy";
                             //update Weapon UI
                             break;
                         }

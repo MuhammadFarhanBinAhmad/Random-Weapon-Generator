@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6233942187690961112}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Scope_T
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6233942187828484045}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Stock_T
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6233942188118035262}
   - component: {fileID: 6233942188118035263}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WeaponBodyCollider
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -113,7 +113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6233942188827282135}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Barrel_T
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 3339146024252768749}
   - component: {fileID: 2139756694078829766}
   - component: {fileID: -5050152262370732746}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3450,6 +3450,7 @@ MonoBehaviour:
   the_Player_UI_HUD: {fileID: 0}
   weapon_Name: 
   the_Weapon_Mode: 0
+  the_Weapon_Type_Int: 0
   is_Shotgun: 0
   is_Rocket: 0
   the_Round_Type: 0
@@ -3469,6 +3470,8 @@ MonoBehaviour:
   muzzle_Flash: {fileID: 0}
   weapon_Shoot_Sound: []
   weapon_AudioSource: {fileID: 0}
+  the_Anim: {fileID: 0}
+  weapon_Anim: []
 --- !u!114 &2139756694078829766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3531,7 +3534,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6233942189063072899}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Magazine_T
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -3564,7 +3567,7 @@ GameObject:
   - component: {fileID: 6233942189267663457}
   - component: {fileID: 6233942189267663456}
   - component: {fileID: 6233942189267663463}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Grip
   m_TagString: Untagged
   m_Icon: {fileID: 0}

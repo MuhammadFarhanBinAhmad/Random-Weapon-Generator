@@ -135,7 +135,7 @@ public class TurrentHead : MonoBehaviour
                     the_Ammo_Pool.bullet_Pool[i].transform.rotation = bullet_Spawn_Point.transform.rotation;
                     the_Ammo_Pool.bullet_Pool[i].SetActive(true);
                     the_Ammo_Pool.bullet_Pool[i].GetComponent<BulletStats>().bullet_Damage = the_TB.unit_Damage;
-                    the_Ammo_Pool.bullet_Pool[i].gameObject.tag = "Enemy";
+                    the_Ammo_Pool.bullet_Pool[i].gameObject.tag = "HurtPlayer";
                     break;
                 }
             }

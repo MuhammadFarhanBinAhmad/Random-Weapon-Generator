@@ -6,6 +6,7 @@ public class GUNINATORGunCreation : MonoBehaviour
 {
 
     RandomWeaponGenerator the_RWG;
+    GUNinatorUI the_GUI;
 
     public GameObject GUN_INATOR;
 
@@ -19,6 +20,11 @@ public class GUNINATORGunCreation : MonoBehaviour
     private void Start()
     {
         the_RWG = GetComponent<RandomWeaponGenerator>();
+        the_GUI = GetComponent<GUNinatorUI>();
+        WeaponType(0);
+        RarityType(0);
+        ElementType(0);
+        RoundType(0);
     }
 
     public void WeaponType(int type)
@@ -108,31 +114,13 @@ public class GUNINATORGunCreation : MonoBehaviour
     void Order()
     {
         w_Total_Cost = w_Cost + ra_Cost + e_Cost + ro_Cost;
+        the_GUI.UpdateWeaponCost();
 
         the_RWG.the_Weapon_Type = w_Type;
         the_RWG.the_Weapon_Rarity = ra_Type;
         the_RWG.the_Element_Type = e_Type;
         the_RWG.the_Round_Type = ro_Type;
     }
-    public void CreateRandomWeapon()
-    {
-        w_Total_Cost = 5;
-
-        if (FindObjectOfType<PlayerManager>().money_Total >= w_Total_Cost)
-        {
-            w_Type = Random.Range(0, 7);
-            print(w_Type);
-            the_RWG.the_Weapon_Type = w_Type;
-            the_RWG.the_Weapon_Rarity = Random.Range(0, 4);
-            the_RWG.the_Element_Type = Random.Range(0, 5);
-            the_RWG.the_Round_Type = Random.Range(0, 6);
-
-            //FindObjectOfType<PlayerManager>().money_Total -= w_Total_Cost;
-
-            the_RWG.CreateWeaponStats(w_Type);
-        }
-    }
-
     public void CreateWeapon()
     {
         if (FindObjectOfType<PlayerManager>().money_Total >= w_Total_Cost)

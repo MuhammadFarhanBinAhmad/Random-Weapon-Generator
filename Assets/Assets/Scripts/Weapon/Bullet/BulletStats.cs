@@ -53,7 +53,7 @@ public class BulletStats : MonoBehaviour
     /// <param name="other"></param>
     void OnTriggerEnter(Collider other)
     {
-        if (tag == "Player")
+        if (tag == "HurtEnemy")
         {
             if (other.GetComponent<BaseEnemy>() != null)
             {
@@ -209,10 +209,9 @@ public class BulletStats : MonoBehaviour
                 Invoke("Destroy", 2.5f);
             }
         }
-        if (tag == "Enemy")
+        if (tag == "HurtPlayer")
         {
             FindObjectOfType<PlayerManager>().TakeDamage(bullet_Damage);
-            print(bullet_Damage);
             Destroy();
         }
     }

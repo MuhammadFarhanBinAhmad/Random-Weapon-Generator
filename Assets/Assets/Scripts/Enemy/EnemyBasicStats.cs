@@ -23,7 +23,6 @@ public class EnemyBasicStats : MonoBehaviour
     internal void TakingDamage(int dmg)
     {
         unit_Health -= dmg;
-        print("getting hit dmg" + dmg);
         if (unit_Health <= 0)
         {
             GetComponent<DropCollectables>().SpawnCollectables();

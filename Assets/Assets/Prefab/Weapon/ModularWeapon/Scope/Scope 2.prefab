@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4871181404522326265}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Scope 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 2720030199278869857}
   - component: {fileID: 7737846325533533871}
   - component: {fileID: 3023518798555255577}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Scope 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

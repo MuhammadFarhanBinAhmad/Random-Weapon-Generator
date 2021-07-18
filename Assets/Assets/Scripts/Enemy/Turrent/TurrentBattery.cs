@@ -9,7 +9,7 @@ public class TurrentBattery : EnemyBasicStats
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<BulletStats>() != null && other.GetComponent<BulletStats>().tag == "Player")
+        if (other.GetComponent<BulletStats>() != null && other.GetComponent<BulletStats>().tag == "HurtEnemy")
         {
             //Instantiate(explosion_Effect, transform.position, transform.rotation);
             FindObjectOfType<Room>().enemy_Left.Remove(this.transform.parent.gameObject);

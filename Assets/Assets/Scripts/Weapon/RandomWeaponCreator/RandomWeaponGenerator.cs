@@ -29,6 +29,7 @@ public class RandomWeaponGenerator : MonoBehaviour
 
     [Header("Weapon unlockables")]
     public List<bool> weapon_Unlock = new List<bool>();
+    public List<bool> rarity_Unlock = new List<bool>();
     public List<bool> round_Unlock = new List<bool>();
     public List<bool> element_Unlock = new List<bool>();
 
@@ -529,7 +530,7 @@ public class RandomWeaponGenerator : MonoBehaviour
                     break;
                 }
         }
-        if (weapon_Unlock[the_Weapon_Type])
+        if (weapon_Unlock[the_Weapon_Type] && rarity_Unlock[the_Weapon_Rarity])
         {
             if (the_Weapon_Type != 6)
             {
@@ -543,6 +544,36 @@ public class RandomWeaponGenerator : MonoBehaviour
         else
         {
             print("Weapon lock");
+        }
+    }
+    void RarityName(int RN)
+    {
+        switch(the_Weapon_Rarity)
+        {
+            case 0:
+                {
+                    break;
+                }
+            case 1:
+                {
+                    weapon_name += "Uncommon ";
+                    break;
+                }
+            case 2:
+                {
+                    weapon_name += "Rare ";
+                    break;
+                }
+            case 3:
+                {
+                    weapon_name += "Awesome ";
+                    break;
+                }
+            case 4:
+                {
+                    weapon_name += "Legendary ";
+                    break;
+                }
         }
     }
     void RoundType(int RT)
@@ -716,10 +747,11 @@ public class RandomWeaponGenerator : MonoBehaviour
         NewWeapon.reload_Time = reload_Time;
         NewWeapon.fire_Rate = fire_Rate;
         NewWeapon.gun_Total_Ammo = total_Ammo;
+        NewWeapon.gun_current_Ammo = total_Ammo;
         NewWeapon.gun_Total_Mag_Capacity = mag_Capacity;
         NewWeapon.min_Damage = min_Damage;
         NewWeapon.max_Damage = max_Damage;
-        NewWeapon.the_Weapon_Type = the_Weapon_Type;
+        NewWeapon.the_Weapon_Type_Int = the_Weapon_Type;
         NewWeapon.the_Weapon_Mode = the_Weapon_Mode;
         NewWeapon.the_Round_Type = the_Round_Type;
         NewWeapon.the_Element_Type = the_Element_Type;

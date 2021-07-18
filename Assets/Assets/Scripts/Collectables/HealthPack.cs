@@ -15,6 +15,7 @@ public class HealthPack : MonoBehaviour
             if (PM.health_Player_Current <= PM.health_Player)
             {
                 PM.health_Player_Current += health_To_Give;
+                FindObjectOfType<PlayerUIHUD>().HealthUpdate();
             }
             Destroy(gameObject);
         }

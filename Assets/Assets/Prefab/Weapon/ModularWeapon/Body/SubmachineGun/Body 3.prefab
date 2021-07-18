@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8823085702273017978}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Barrel_T
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8823085702313432752}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Magazine_T
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8823085702585106843}
   - component: {fileID: 8823085702585106840}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WeaponBodyCollider
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -113,7 +113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8823085702685826555}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Scope_T
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 8823085703389333294}
   - component: {fileID: 8823085703389333281}
   - component: {fileID: 8823085703389333280}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Grip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -681,7 +681,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8823085703639999402}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Stock_T
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 2938196283694871797}
   - component: {fileID: 2778656525900048471}
   - component: {fileID: 297921066700158022}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2866,6 +2866,7 @@ MonoBehaviour:
   the_Player_UI_HUD: {fileID: 0}
   weapon_Name: 
   the_Weapon_Mode: 0
+  the_Weapon_Type_Int: 0
   is_Shotgun: 0
   is_Rocket: 0
   the_Round_Type: 0
@@ -2885,6 +2886,8 @@ MonoBehaviour:
   muzzle_Flash: {fileID: 0}
   weapon_Shoot_Sound: []
   weapon_AudioSource: {fileID: 0}
+  the_Anim: {fileID: 0}
+  weapon_Anim: []
 --- !u!114 &2778656525900048471
 MonoBehaviour:
   m_ObjectHideFlags: 0
