@@ -530,21 +530,7 @@ public class RandomWeaponGenerator : MonoBehaviour
                     break;
                 }
         }
-        if (weapon_Unlock[the_Weapon_Type] && rarity_Unlock[the_Weapon_Rarity])
-        {
-            if (the_Weapon_Type != 6)
-            {
-                RoundType(the_Round_Type);//excluding rocket
-            }
-            else
-            {
-                ElementalType(the_Element_Type);//for rocket 
-            }
-        }
-        else
-        {
-            print("Weapon lock");
-        }
+        RarityName(the_Weapon_Rarity);
     }
     void RarityName(int RN)
     {
@@ -574,6 +560,21 @@ public class RandomWeaponGenerator : MonoBehaviour
                     weapon_name += "Legendary ";
                     break;
                 }
+        }
+        if (weapon_Unlock[the_Weapon_Type] && rarity_Unlock[the_Weapon_Rarity])
+        {
+            if (the_Weapon_Type != 6)
+            {
+                RoundType(the_Round_Type);//excluding rocket
+            }
+            else
+            {
+                ElementalType(the_Element_Type);//for rocket 
+            }
+        }
+        else
+        {
+            print("Weapon lock");
         }
     }
     void RoundType(int RT)

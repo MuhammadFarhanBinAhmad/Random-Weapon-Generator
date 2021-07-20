@@ -13,5 +13,6 @@ public class SceneTransistion : MonoBehaviour
             FindObjectOfType<AmmoPool>().DestroyAmmoPool();
         }
         SceneManager.LoadScene(Scene);
+        Time.timeScale = 1;
     }
 }

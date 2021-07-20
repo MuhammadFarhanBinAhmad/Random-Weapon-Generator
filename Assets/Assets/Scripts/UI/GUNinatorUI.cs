@@ -23,8 +23,4 @@ public class GUNinatorUI : MonoBehaviour
     {
         total_Weapon_Cost.text = "Total Cost: " + the_GGC.w_Total_Cost.ToString();
     }
-    public void UpdateLockItems()
-    {
-
-    }
 }

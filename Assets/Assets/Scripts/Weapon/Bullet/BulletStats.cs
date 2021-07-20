@@ -209,7 +209,7 @@ public class BulletStats : MonoBehaviour
                 Invoke("Destroy", 2.5f);
             }
         }
-        if (tag == "HurtPlayer")
+        if (tag == "HurtPlayer" && other.GetComponent<PlayerManager>())
         {
             FindObjectOfType<PlayerManager>().TakeDamage(bullet_Damage);
             Destroy();

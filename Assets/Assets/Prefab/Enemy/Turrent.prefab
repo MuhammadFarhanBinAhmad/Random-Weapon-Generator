@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 2336440708276069169}
   - component: {fileID: 3131957218791861220}
   - component: {fileID: 6973221560988498962}
+  - component: {fileID: 6496430513978941046}
   m_Layer: 0
   m_Name: TurrentyShiled
   m_TagString: Untagged
@@ -300,6 +301,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6496430513978941046
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755140000314268574}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 2, z: 1.0000002}
+  m_Center: {x: 0.00000005960465, y: 0, z: 0.00000014901161}
 --- !u!1 &2897708011979347137
 GameObject:
   m_ObjectHideFlags: 0
