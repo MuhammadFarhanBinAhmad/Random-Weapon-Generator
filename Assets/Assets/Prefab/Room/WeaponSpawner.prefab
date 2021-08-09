@@ -12107,7 +12107,7 @@ GameObject:
   - component: {fileID: 5198222024030045886}
   - component: {fileID: 5198222024030045857}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: WorldSpaceScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12225,13 +12225,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5198222024042881255}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 6.25, y: -3.21, z: -34.647}
-  m_LocalScale: {x: 1.9722295, y: 0.99999964, z: 3.9910266}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.50000006, w: 0.50000006}
+  m_LocalPosition: {x: -3.1530037, y: 19.520002, z: 1.049989}
+  m_LocalScale: {x: 1.9722295, y: 1, z: 3.9910262}
   m_Children:
   - {fileID: 5198222024030045856}
-  m_Father: {fileID: 5198222024052202728}
-  m_RootOrder: 1
+  m_Father: {fileID: 5198222024472483508}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!33 &5198222024042881251
 MeshFilter:
@@ -12343,7 +12343,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5198222024472483508}
-  - {fileID: 5198222024042881252}
   - {fileID: 5198222024637774184}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -14350,7 +14349,8 @@ Transform:
   m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 5.200001, y: -22.730001, z: -37.800003}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5198222024042881252}
   m_Father: {fileID: 5198222024052202728}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -16729,7 +16729,7 @@ RectTransform:
   m_Children:
   - {fileID: 5198222024680285885}
   m_Father: {fileID: 5198222024052202728}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16788,6 +16788,8 @@ MonoBehaviour:
   b_doublebarrelshotgun:
   - {fileID: 807642151360420482, guid: 0810e3e2b28758c4093268c8a28a9618, type: 3}
   b_machinegun:
+  - {fileID: 9027066341694968674, guid: 84681841f7192c44b914ebc20c7f84a3, type: 3}
+  b_rocketlauncher:
   - {fileID: 9027066341694968674, guid: 84681841f7192c44b914ebc20c7f84a3, type: 3}
   weapon_Unlock: 01000000000000
   rarity_Unlock: 0100000000
@@ -17024,7 +17026,7 @@ GameObject:
   - component: {fileID: 5198222024680285883}
   - component: {fileID: 5198222024680285882}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: PlayerScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
     public float speed_Movement;
     public float health_Player;
     public float health_Player_Current;
-    public int money_Total;
+    public static int money_Total = 10;
     //Runnning
     float total_Stamina = 10;
     float speed_Multiplier = 1.5f;
@@ -32,13 +32,13 @@ public class PlayerManager : MonoBehaviour
     public List<GameObject> weapon_Transform = new List<GameObject>();
     //WeaponPickup
     public BaseGun pickable_Weapon;
-    //Flash Light//
 
+    //PlayerUI
     PlayerUIHUD the_Player_UI_HUD;
-    //GUN-INATOR
-    public GUNINATORGunCreation the_GUNINATOR;
     public GameObject press_E;
 
+    public GUNINATORGunCreation the_GUNINATOR;
+    public ATM the_ATM;
 
     private void Start()
     {
@@ -110,9 +110,17 @@ public class PlayerManager : MonoBehaviour
             WeaponPickedUpOrLeft();
         }
         //ACCESS STORE//
-        if (the_GUNINATOR !=null && Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            the_GUNINATOR.OpenStore();
+            if (the_ATM != null)
+            {
+                the_ATM.OpenATM();
+            }
+            if (the_GUNINATOR != null)
+            {
+                the_GUNINATOR.OpenStore();
+            }
+
         }
     }
 
@@ -213,6 +221,10 @@ public class PlayerManager : MonoBehaviour
         the_Player_UI_HUD.PickableWeaponDetails(null);
         the_Player_UI_HUD.pickable_Weapon_Name_GUI.gameObject.SetActive(false);
     }
+    public void ResetPlayerData()
+    {
+        money_Total = 0;
+    }
     //player able to pick up weapon
     private void OnTriggerEnter(Collider other)
     {
@@ -221,9 +233,16 @@ public class PlayerManager : MonoBehaviour
         {
             WeaponDetected(other.GetComponent<BaseGun>());
         }
+        //player enter GUN-inator premise
         if (other.GetComponent<GUNINATORGunCreation>() != null)
         {
             the_GUNINATOR = other.GetComponent<GUNINATORGunCreation>();
+            press_E.SetActive(true);
+        }
+        //player enter ATM premise
+        if (other.GetComponent<ATM>() != null)
+        {
+            the_ATM = other.GetComponent<ATM>();
             press_E.SetActive(true);
         }
     }
@@ -231,9 +250,16 @@ public class PlayerManager : MonoBehaviour
     {
         WeaponPickedUpOrLeft();
 
+        //player leaves GUN-inator premise
         if (the_GUNINATOR !=null)
         {
             the_GUNINATOR = null;
+            press_E.SetActive(false);
+        }
+        //player enter ATM premise
+        if (the_ATM != null)
+        {
+            the_ATM = null;
             press_E.SetActive(false);
         }
     }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 807642149675188101}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Stock_T
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 807642149757466011}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Barrel_T
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 807642150243523706}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Scope_T
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -99,7 +99,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 807642151169915428}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Magazine_T
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 807642151203204290}
   - component: {fileID: 807642151203204293}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: WeaponBodyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 807642151360420504}
   - component: {fileID: -836780579129665222}
   - component: {fileID: 7575624754945795525}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Body 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

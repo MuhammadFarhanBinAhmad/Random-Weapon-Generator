@@ -26,6 +26,7 @@ public class RandomWeaponGenerator : MonoBehaviour
     public List<GameObject> b_shotgun = new List<GameObject>();
     public List<GameObject> b_doublebarrelshotgun = new List<GameObject>();
     public List<GameObject> b_machinegun = new List<GameObject>();
+    public List<GameObject> b_rocketlauncher = new List<GameObject>();
 
     [Header("Weapon unlockables")]
     public List<bool> weapon_Unlock = new List<bool>();
@@ -474,6 +475,8 @@ public class RandomWeaponGenerator : MonoBehaviour
             //ROCKET
             case 6:
                 {
+                    the_Weapon_Body_Number = Random.Range(0, b_rocketlauncher.Count);
+                    the_Weapon_Body_GO = b_rocketlauncher[the_Weapon_Body_Number];
                     switch (the_Weapon_Rarity)
                     {
                         case 0:
@@ -742,7 +745,7 @@ public class RandomWeaponGenerator : MonoBehaviour
     }
     void SpawnWeapon()
     {
-        FindObjectOfType<PlayerManager>().money_Total -= the_GUNINATORGunCreation.w_Total_Cost;
+        PlayerManager.money_Total -= the_GUNINATORGunCreation.w_Total_Cost;
         GameObject GO = Instantiate(the_Weapon_Body_GO, w_Spawn_Point.transform.position, w_Spawn_Point.transform.rotation);
         BaseGun NewWeapon = GO.GetComponent<BaseGun>();
         NewWeapon.reload_Time = reload_Time;

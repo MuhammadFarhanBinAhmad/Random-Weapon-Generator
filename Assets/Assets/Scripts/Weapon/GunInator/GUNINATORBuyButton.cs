@@ -26,7 +26,7 @@ public class GUNINATORBuyButton : MonoBehaviour
     
     public void AttemptToBuy(int type)
     {
-        if (the_PM.money_Total >= item_Cost)
+        if (PlayerManager.money_Total >= item_Cost)
         {
             BuyingItem(type);
         }
@@ -58,6 +58,6 @@ public class GUNINATORBuyButton : MonoBehaviour
                 }
         }
         lock_Button.SetActive(false);
-        the_PM.money_Total -= item_Cost;
+        PlayerManager.money_Total -= item_Cost;
     }
 }

@@ -15,7 +15,7 @@ public class DropCollectables : MonoBehaviour
 
     internal void SpawnCollectables()
     {
-
+        print("hit");
         Vector3 v = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
 
         //drop the collectable items

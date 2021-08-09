@@ -13,7 +13,7 @@ public class BulletStats : MonoBehaviour
     public int round_Type;
     //Element Type
     public int element_Type;
-    public GameObject acid_Smoke,explosion;
+    public GameObject acid_Smoke,small_Explosion,large_Explosion;
     //For Rocket Only
     public bool is_Rocket;
 
@@ -42,7 +42,7 @@ public class BulletStats : MonoBehaviour
     {
         CancelInvoke();
     }
-    void Destroy()
+    internal void Destroy()
     {
         bullet_Damage = 0;
         gameObject.SetActive(false);
@@ -111,7 +111,7 @@ public class BulletStats : MonoBehaviour
                             {
                                 print("Explosive");
                                 other.GetComponent<BaseEnemy>().TakingDamage(bullet_Damage * 1.25f);
-                                other.GetComponent<Rigidbody>().AddExplosionForce(2.5f, transform.position, 1);
+                                //other.GetComponent<Rigidbody>().AddExplosionForce(2.5f, transform.position, 1);
                                 Destroy();
                             }
                             //For Rocket
@@ -119,7 +119,7 @@ public class BulletStats : MonoBehaviour
                             {
                                 print("Rocket");
                                 other.GetComponent<BaseEnemy>().TakingDamage(bullet_Damage);
-                                GameObject REE = Instantiate(explosion, transform.position, transform.rotation);//Rocket Explosion
+                                GameObject REE = Instantiate(large_Explosion, transform.position, transform.rotation);//Rocket Explosion
                                 REE.GetComponent<ElementalRocket>().element_Type = element_Type;
                                 //other.GetComponent<Rigidbody>().AddExplosionForce(1000, transform.position, 2);
                                 Destroy();
@@ -190,13 +190,13 @@ public class BulletStats : MonoBehaviour
             {
                 if (is_Rocket)
                 {
-                    GameObject REE = Instantiate(explosion, transform.position, transform.rotation);//Rocket Explosion
-                    REE.GetComponent<ElementalRocket>().element_Type = element_Type;
+                    GameObject REE = Instantiate(large_Explosion, transform.position, transform.rotation);//Rocket Explosion
+                    //REE.GetComponent<ElementalRocket>().element_Type = element_Type;
                     Destroy();
                 }
                 else if (round_Type == 1)
                 {
-                    GameObject REE = Instantiate(explosion, transform.position, transform.rotation);//Rocket Explosion
+                    GameObject REE = Instantiate(small_Explosion, transform.position, transform.rotation);//Rocket Explosion
                     Destroy();
                 }
                 else

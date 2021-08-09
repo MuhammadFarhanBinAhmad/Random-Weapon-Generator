@@ -123,7 +123,7 @@ public class GUNINATORGunCreation : MonoBehaviour
     }
     public void CreateWeapon()
     {
-        if (FindObjectOfType<PlayerManager>().money_Total >= w_Total_Cost)
+        if (PlayerManager.money_Total >= w_Total_Cost)
         {
             
             the_RWG.CreateWeaponStats(w_Type);

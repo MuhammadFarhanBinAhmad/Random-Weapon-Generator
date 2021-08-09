@@ -43,7 +43,7 @@ public class PlayerUIHUD : MonoBehaviour
                 Time.timeScale = 1;
             }
         }
-        ui_Total_Coins.text = "X" + the_PM.money_Total.ToString();
+        ui_Total_Coins.text = "X" + PlayerManager.money_Total.ToString();
     }
 
     internal void AmmoUpdate(int i)

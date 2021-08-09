@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5067239564999056948}
   - component: {fileID: 7919226651529956091}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Bullet(Player)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,7 +132,8 @@ MonoBehaviour:
   round_Type: 0
   element_Type: 0
   acid_Smoke: {fileID: 4430152650456827401, guid: a46899c349a4efd478c327674ed15b8a, type: 3}
-  explosion: {fileID: 1000013462590818, guid: ecdd96beb7f93494880c052dfccf9dc1, type: 3}
+  small_Explosion: {fileID: 1000013462590818, guid: e3514290e512ae4409135c4fbaf29034, type: 3}
+  large_Explosion: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
   is_Rocket: 0
   Weapon_Layer:
     serializedVersion: 2
