@@ -36,8 +36,6 @@ public class BasicMovingEnemyComponents : EnemyRange
     // Update is called once per frame
     void FixedUpdate()
     {
-        agent.destination = check_Point[current_CheckPoint].transform.position;
-        transform.LookAt(check_Point[current_CheckPoint].transform);
         CurrentTask();
     }
     void CurrentTask()
@@ -46,10 +44,13 @@ public class BasicMovingEnemyComponents : EnemyRange
         {
             case unit_Task.Patrolling:
                 {
+                    if (agent.speed < the_EBS.unit_Speed)
+                    {
+                        agent.speed = the_EBS.unit_Speed;
+                    }
                     if (the_PM == null)
                     {
                         {
-
                             if (agent.remainingDistance <= agent.stoppingDistance)
                             {
                                 if (current_CheckPoint > check_Point.Count - 1)
@@ -61,7 +62,8 @@ public class BasicMovingEnemyComponents : EnemyRange
                                     current_CheckPoint++;
                                 }
                             }
-
+                            agent.destination = check_Point[current_CheckPoint].transform.position;
+                            transform.LookAt(check_Point[current_CheckPoint].transform);
                             print("Patrolling");
                         }
                     }
@@ -83,7 +85,7 @@ public class BasicMovingEnemyComponents : EnemyRange
                         }
                         else
                         {
-                            agent.speed = 0;
+                            //agent.speed = 0;
                             unit_Current_Charging_Time = unit_Charging_Time;
                             current_UT = unit_Task.ChargingAttack;
                             print("FinishAttacking");

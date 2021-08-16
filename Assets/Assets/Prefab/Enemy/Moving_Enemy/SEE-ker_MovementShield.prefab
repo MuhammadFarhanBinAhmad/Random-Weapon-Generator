@@ -6505,7 +6505,7 @@ GameObject:
   - component: {fileID: 8860255394407065945}
   - component: {fileID: 2643852150326990284}
   m_Layer: 0
-  m_Name: SEE-ker_Movement_Shield
+  m_Name: SEE-ker_MovementShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

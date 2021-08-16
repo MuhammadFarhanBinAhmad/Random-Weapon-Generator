@@ -11,8 +11,13 @@ public class SceneTransistion : MonoBehaviour
         if (Scene == "MainMenu")
         {
             FindObjectOfType<AmmoPool>().DestroyAmmoPool();
+            PlayerManager.ResetPlayerData();
         }
         SceneManager.LoadScene(Scene);
         Time.timeScale = 1;
+    }
+    public void Exitgame()
+    {
+        Application.Quit();
     }
 }

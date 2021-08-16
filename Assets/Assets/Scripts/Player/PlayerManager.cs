@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
     public float speed_Movement;
     public float health_Player;
     public float health_Player_Current;
-    public static int money_Total = 10;
+    public static int money_Total = 5;
     //Runnning
     float total_Stamina = 10;
     float speed_Multiplier = 1.5f;
@@ -221,9 +221,9 @@ public class PlayerManager : MonoBehaviour
         the_Player_UI_HUD.PickableWeaponDetails(null);
         the_Player_UI_HUD.pickable_Weapon_Name_GUI.gameObject.SetActive(false);
     }
-    public void ResetPlayerData()
+    public static void ResetPlayerData()
     {
-        money_Total = 0;
+        money_Total = 5;
     }
     //player able to pick up weapon
     private void OnTriggerEnter(Collider other)

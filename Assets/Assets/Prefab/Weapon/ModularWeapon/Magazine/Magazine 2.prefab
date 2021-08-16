@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 589617124549644078}
   - component: {fileID: 2302941220624535882}
   - component: {fileID: 5498975806465364551}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Mag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2705,7 +2705,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6096564130257843805}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Magazine 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

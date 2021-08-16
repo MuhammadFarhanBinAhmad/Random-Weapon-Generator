@@ -16,7 +16,7 @@ public class RoomSpawner : MonoBehaviour
     /// Element value = room to complete
     /// </summary>
     public List<int> room_To_Complete = new List<int>();
-    public int current_Level;
+    public static int current_Level;
 
     RoomPool the_RP;
 

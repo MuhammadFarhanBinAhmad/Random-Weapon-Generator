@@ -1504,7 +1504,7 @@ MonoBehaviour:
   add_Barrel: 1
   add_Stock: 0
   add_Magazine: 0
-  add_Scope: 1
+  add_Scope: 0
 --- !u!54 &5597696144632966124
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class GUNINATORBuyButton : MonoBehaviour
 {
     RandomWeaponGenerator the_RWG;
     PlayerManager the_PM;
 
     public GameObject lock_Button;
+    public TextMeshProUGUI item_Cost_Text;
 
     public int item_Cost;
     /// <summary>
@@ -22,6 +23,8 @@ public class GUNINATORBuyButton : MonoBehaviour
     {
         the_RWG = FindObjectOfType<RandomWeaponGenerator>();
         the_PM = FindObjectOfType<PlayerManager>();
+
+        item_Cost_Text.text = "$" + item_Cost.ToString();
     }
     
     public void AttemptToBuy(int type)

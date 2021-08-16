@@ -6,9 +6,9 @@ public class TurrentShield : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "HurtPlayer")
+        if (other.tag == "HurtEnemy")
         {
-            Destroy(other.gameObject);
+            other.GetComponent<BulletStats>().Destroy();
         }
     }
 }
