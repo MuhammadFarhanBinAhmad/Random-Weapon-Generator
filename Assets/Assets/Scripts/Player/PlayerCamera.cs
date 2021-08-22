@@ -22,6 +22,19 @@ public class PlayerCamera : MonoBehaviour
     void Update()
     {
         MouseMovement();
+        PlayerRaycast();
+    }
+    void PlayerRaycast()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 100))
+        {
+            if (hit.transform.tag == "Enemy" && hit.transform.GetComponent<EnemyBasicStats>() != null)
+            {
+                print(hit.transform.GetComponent<EnemyBasicStats>().unit_Health);
+            }
+
+        }
     }
     //change mouse sensitivity
     public void ChangeMouseSensitivity()

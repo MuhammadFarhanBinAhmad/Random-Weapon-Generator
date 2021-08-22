@@ -1189,11 +1189,11 @@ GameObject:
   - component: {fileID: 1265617882217767115}
   - component: {fileID: 1265617882217767114}
   - component: {fileID: 6721030487664231810}
-  - component: {fileID: 5752585538775506015}
   - component: {fileID: 5752585538775506013}
   - component: {fileID: 5752585538889036611}
+  - component: {fileID: 8687062355414986472}
   m_Layer: 0
-  m_Name: SEE-ker_Time_Shield
+  m_Name: SEE-ker_TimeShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1261,19 +1261,6 @@ MonoBehaviour:
   - {fileID: 0}
   current_CheckPoint: 0
   unit_Charging_Time: 2
---- !u!65 &5752585538775506015
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1265617882217767113}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 40, y: 10, z: 40}
-  m_Center: {x: -0.20762634, y: 4.9553185, z: 0.000022888184}
 --- !u!95 &5752585538775506013
 Animator:
   serializedVersion: 3
@@ -1310,6 +1297,19 @@ MonoBehaviour:
   forcefield_up_Time: 0
   time_Recharge_Needed: 5
   time_Recharge: 0
+--- !u!135 &8687062355414986472
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265617882217767113}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 30
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1265617882882013349
 GameObject:
   m_ObjectHideFlags: 0

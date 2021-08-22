@@ -6501,9 +6501,9 @@ GameObject:
   - component: {fileID: 2643852150326990287}
   - component: {fileID: 2643852150326990286}
   - component: {fileID: 7522520842720276614}
-  - component: {fileID: 8860255394407065947}
   - component: {fileID: 8860255394407065945}
   - component: {fileID: 2643852150326990284}
+  - component: {fileID: 305118774859659729}
   m_Layer: 0
   m_Name: SEE-ker_MovementShield
   m_TagString: Untagged
@@ -6573,19 +6573,6 @@ MonoBehaviour:
   - {fileID: 0}
   current_CheckPoint: 0
   unit_Charging_Time: 2
---- !u!65 &8860255394407065947
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2643852150326990285}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 40, y: 10, z: 40}
-  m_Center: {x: -0.20762634, y: 4.9553185, z: 0.000022888184}
 --- !u!95 &8860255394407065945
 Animator:
   serializedVersion: 3
@@ -6619,6 +6606,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   the_FF_GameObject: {fileID: 8860255392691372040}
   forcefield_Down_Timer: 5
+--- !u!135 &305118774859659729
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2643852150326990285}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 30
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2775378451197526925
 GameObject:
   m_ObjectHideFlags: 0

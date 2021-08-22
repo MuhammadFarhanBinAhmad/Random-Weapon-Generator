@@ -15,13 +15,12 @@ public class DropCollectables : MonoBehaviour
 
     internal void SpawnCollectables()
     {
-        print("hit");
         Vector3 v = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
 
         //drop the collectable items
-        for (int i = 0; i <3; i++)
+        for (int i = 0; i < droppable_Collectables.Count; i++)
         {
-            for (int I = 0; I <= amount_Of_Drop[i]; I++)
+            for (int I = 0; I < amount_Of_Drop[i]; I++)
             {
                 GameObject DC = Instantiate(droppable_Collectables[i], v, transform.parent.rotation);
                 DC.GetComponent<Rigidbody>().AddForce(transform.up * 50);

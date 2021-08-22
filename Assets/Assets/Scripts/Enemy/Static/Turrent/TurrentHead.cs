@@ -16,11 +16,12 @@ public class TurrentHead : MonoBehaviour
     public float fire_Rate;
     public Transform bullet_Spawn_Point;
     float next_Time_To_Fire = 0;
+    public AudioSource bullet_Sound;
     [Header("Time and Target")]
     public float time_Before_Reset;
     public float timer;
     public bool target_Lock;
-    Transform current_Target;
+    public Transform current_Target;
 
     public EnemyBasicStats the_EBS;
     public Light mode_Light;
@@ -45,41 +46,49 @@ public class TurrentHead : MonoBehaviour
         {
             case 0:
                 {
-                    RaycastHit hit;
+                    //RaycastHit hit;
 
                     transform.Rotate(0, 1, 0);
                     if (timer < time_Before_Reset)
                     {
                         timer = time_Before_Reset;
                     }
-                    if (Physics.Raycast(transform.position, transform.forward, out hit, 100))
+                    //print("Patrolling");
+                    /*if (Physics.Raycast(transform.position, transform.forward, out hit, 100))
                     {
                         if (hit.transform.GetComponent<PlayerManager>() != null)
                         {
                             current_Target = hit.transform.GetComponent<PlayerManager>().transform;
                             current_Mode = 1;
                         }
-                    }
+                    }*/
+                    //go to ontrigger for new detect system
                     break;
                 }
             case 1:
                 {
                     if (current_Target != null)
                     {
-                        RaycastHit hit;
-
-                        if (Physics.Raycast(transform.position, transform.forward, out hit, 250))
-                        {
-                            if (hit.transform.GetComponent<PlayerManager>() == null)
-                            {
-                                TargetLost();
-                            }
-                            else
-                            {
-                                TargetLock();
-                            }
-                        }
+                        TargetLock();
                     }
+                    else
+                    {
+                        TargetLost();
+                    }
+
+                    /*RaycastHit hit;
+
+                    if (Physics.Raycast(transform.position, transform.forward, out hit, 250))
+                    {
+                        if (hit.transform.GetComponent<PlayerManager>() == null)
+                        {
+                            TargetLost();
+                        }
+                        else
+                        {
+                            TargetLock();
+                        }
+                    }*/
 
                     mode_Light.intensity = Mathf.Lerp(min, max, t);
 
@@ -108,6 +117,7 @@ public class TurrentHead : MonoBehaviour
         {
             Shooting();
         }
+        //print("TargetLock");
     }
     void TargetLost()
     {
@@ -116,6 +126,7 @@ public class TurrentHead : MonoBehaviour
         if (timer >= 0)
         {
             timer -= Time.deltaTime;
+            //print("TargetLost");
         }
         else
         {
@@ -126,19 +137,43 @@ public class TurrentHead : MonoBehaviour
     void Shooting()
     {
         {
-            next_Time_To_Fire = Time.time + 1f / fire_Rate;
-            for (int i = 0; i < the_Ammo_Pool.bullet_Pool.Count; i++)
+            RaycastHit hit;
+
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 250))
             {
-                if (!the_Ammo_Pool.bullet_Pool[i].activeInHierarchy)
+                if (hit.transform == current_Target)
                 {
-                    the_Ammo_Pool.bullet_Pool[i].transform.position = bullet_Spawn_Point.transform.position;
-                    the_Ammo_Pool.bullet_Pool[i].transform.rotation = bullet_Spawn_Point.transform.rotation;
-                    the_Ammo_Pool.bullet_Pool[i].SetActive(true);
-                    the_Ammo_Pool.bullet_Pool[i].GetComponent<BulletStats>().bullet_Damage = the_EBS.unit_Damage;
-                    the_Ammo_Pool.bullet_Pool[i].gameObject.tag = "HurtPlayer";
-                    break;
+                    next_Time_To_Fire = Time.time + 1f / fire_Rate;
+                    for (int i = 0; i < the_Ammo_Pool.bullet_Pool.Count; i++)
+                    {
+                        if (!the_Ammo_Pool.bullet_Pool[i].activeInHierarchy)
+                        {
+                            the_Ammo_Pool.bullet_Pool[i].transform.position = bullet_Spawn_Point.transform.position;
+                            the_Ammo_Pool.bullet_Pool[i].transform.rotation = bullet_Spawn_Point.transform.rotation;
+                            the_Ammo_Pool.bullet_Pool[i].SetActive(true);
+                            the_Ammo_Pool.bullet_Pool[i].GetComponent<BulletStats>().bullet_Damage = the_EBS.unit_Damage;
+                            the_Ammo_Pool.bullet_Pool[i].gameObject.tag = "HurtPlayer";
+                            break;
+                        }
+                    }
                 }
             }
+           
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<PlayerManager>() !=null)
+        {
+            current_Target = other.GetComponent<PlayerManager>().transform;
+            current_Mode = 1;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<PlayerManager>() != null && current_Target != null)
+        {
+            current_Target=  null;
         }
     }
 }

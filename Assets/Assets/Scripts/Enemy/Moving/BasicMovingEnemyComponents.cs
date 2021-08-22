@@ -13,8 +13,10 @@ public class BasicMovingEnemyComponents : EnemyRange
     public List<Transform> check_Point = new List<Transform>();
     public int current_CheckPoint;
 
+    [Header("Attack and Charging Stats")]
+    Vector3 player_Pos;
     public float unit_Charging_Time = 2;
-    float unit_Current_Charging_Time;
+    public float unit_Current_Charging_Time;
 
     enum unit_Task
     {
@@ -30,6 +32,7 @@ public class BasicMovingEnemyComponents : EnemyRange
         agent = GetComponent<NavMeshAgent>();
 
         agent.speed = the_EBS.unit_Speed;
+        unit_Current_Charging_Time = unit_Charging_Time;
 
     }
 
@@ -69,7 +72,32 @@ public class BasicMovingEnemyComponents : EnemyRange
                     }
                     else
                     {
-                        current_UT = unit_Task.Attacking;
+                        current_UT = unit_Task.ChargingAttack;
+                        agent.isStopped = true;
+                    }
+                    break;
+                }
+            case unit_Task.ChargingAttack:
+                {
+                    print("Charging");
+                    if (unit_Current_Charging_Time >= 0)
+                    {
+                        unit_Current_Charging_Time -= Time.deltaTime;
+                    }
+                    else if (unit_Current_Charging_Time <= 0)
+                    {
+                        if (the_PM != null)
+                        {
+                            agent.isStopped = false;
+                            player_Pos = the_PM.transform.position;
+                            current_UT = unit_Task.Attacking;
+                        }
+                        else
+                        {
+                            agent.isStopped = false;
+                            unit_Current_Charging_Time = unit_Charging_Time;
+                            current_UT = unit_Task.Patrolling;
+                        }
                     }
                     break;
                 }
@@ -77,50 +105,39 @@ public class BasicMovingEnemyComponents : EnemyRange
                 {
                     if (the_PM != null)
                     {
-                        agent.destination = the_PM.transform.position;
+                        print("Attacking");
+                        transform.LookAt(player_Pos);
+                        agent.speed = the_EBS.unit_Speed * 2;
+                        agent.destination = player_Pos;
+                        if (agent.remainingDistance <= agent.stoppingDistance)
+                        {
+                            agent.speed = 0;
+                            unit_Current_Charging_Time = unit_Charging_Time;
+                            current_UT = unit_Task.ChargingAttack;
+                        }
+
+                        /*agent.destination = the_PM.transform.position;
                         if (agent.remainingDistance >= agent.stoppingDistance)
                         {
                             transform.LookAt(the_PM.transform.position);
-                            print("Attacking");
                         }
                         else
                         {
                             //agent.speed = 0;
                             unit_Current_Charging_Time = unit_Charging_Time;
                             current_UT = unit_Task.ChargingAttack;
-                            print("FinishAttacking");
-                        }
+                        }*/
                     }
                     else
                     {
                         the_PM = null;
                         agent.speed = the_EBS.unit_Speed;
+                        unit_Current_Charging_Time = unit_Charging_Time;
                         current_UT = unit_Task.Patrolling;
-                        print("Patrolling");
                     }
                     break;
                 }
-            case unit_Task.ChargingAttack:
-                {
-                    if (unit_Current_Charging_Time > 0)
-                    {
-                        unit_Current_Charging_Time -= Time.deltaTime;
-                        print("Charging");
-                    }
-                    else if (unit_Current_Charging_Time < 0)
-                    {
-                        agent.speed = the_EBS.unit_Speed;
-                        if (the_PM != null)
-                        {
-                            current_UT = unit_Task.Attacking;
-                        }
-                        else
-                        {
-                            current_UT = unit_Task.Patrolling;
-                        }
-                    }
-                    break;
-                }
+
         }
 
     }

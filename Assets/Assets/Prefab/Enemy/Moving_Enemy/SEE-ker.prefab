@@ -19245,8 +19245,8 @@ GameObject:
   - component: {fileID: 6792882702469620308}
   - component: {fileID: 6792882702469620309}
   - component: {fileID: 1337762121108948765}
-  - component: {fileID: 1772314304}
   - component: {fileID: 1772314306}
+  - component: {fileID: 6983746305852494627}
   m_Layer: 0
   m_Name: SEE-ker
   m_TagString: Untagged
@@ -19315,19 +19315,6 @@ MonoBehaviour:
   - {fileID: 0}
   current_CheckPoint: 0
   unit_Charging_Time: 2
---- !u!65 &1772314304
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6792882702469620310}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 40, y: 10, z: 40}
-  m_Center: {x: -0.20762634, y: 4.9553185, z: 0.000022888184}
 --- !u!95 &1772314306
 Animator:
   serializedVersion: 3
@@ -19347,6 +19334,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!135 &6983746305852494627
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6792882702469620310}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 30
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8456795961434885947
 GameObject:
   m_ObjectHideFlags: 0
